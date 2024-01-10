@@ -15,8 +15,6 @@ require('laravel-mix-purgecss');
 mix
 .vue()
 .js('resources/js/app.js', 'public/js')
-
-.postCss('resources/css/app.css', 'public/css')
 .options({
     postCss: [
         require('postcss-import'),
@@ -26,6 +24,7 @@ mix
 })
 .sass('resources/scss/app.scss', 'public/css')
 .sass('resources/scss/singular/homepage.scss', 'public/css')
+.postCss('resources/css/app.css', 'public/css')
 .purgeCss({
     enabled: true,
     safelist: {
