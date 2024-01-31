@@ -1,8 +1,9 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
-
 use Illuminate\Support\Facades\Route;
+
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\LanguageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,5 +20,7 @@ Route::get('/', function () {
     return view('pages.homepage');
 })->name('homepage');
 
+
+Route::post('language-switch', [LanguageController::class, 'switch'])->name('language.switch');
 
 require __DIR__.'/auth.php';

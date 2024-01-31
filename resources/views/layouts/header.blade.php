@@ -10,6 +10,7 @@
                     </a>
                 </div>
             </div>
+            @include('components.language-switcher')
             @include('layouts.header.navigation')
         </div>
     </div>
