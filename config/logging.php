@@ -126,6 +126,12 @@ return [
         'emergency' => [
             'path' => storage_path('logs/laravel.log'),
         ],
+
+
+        'stripe-products' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/crons/stripe-products.log'),
+        ],
     ],
 
 ];

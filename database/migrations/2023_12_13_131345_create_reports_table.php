@@ -12,9 +12,9 @@ class CreateReportsTable extends Migration
             $table->id();
             $table->string('name')->nullable();
             $table->string('path')->nullable();
-            $table->unsignedBigInteger('users_id');
+            $table->unsignedBigInteger('admin_user_id');
             // Add other columns here
-            $table->foreign('users_id')->references('id')->on('users');
+            $table->foreign('admin_user_id')->references('id')->on('admin_users');
         });
     }
 

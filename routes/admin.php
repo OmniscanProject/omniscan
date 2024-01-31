@@ -1,12 +1,12 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
-
 use Illuminate\Support\Facades\Route;
+
+use App\Http\Controllers\Admin\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
-| Web Routes
+| Admin Routes
 |--------------------------------------------------------------------------
 |
 | Here is where you can register web routes for your application. These
@@ -15,9 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('pages.homepage');
-})->name('homepage');
-
-
-require __DIR__.'/auth.php';
+Route::group(['prefix' => env('ADMIN_URL', 'localhost'), 'middleware' => ['auth:admin']], function() {
+  Route::get('dashboard', [DashboardController::class, 'index'])
+  ->name('admin.dashboard'); 
+});

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Auth;
+namespace App\Http\Requests\Admin\Auth;
 
 use Illuminate\Auth\Events\Lockout;
 use Illuminate\Foundation\Http\FormRequest;
@@ -27,8 +27,8 @@ class LoginRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'email' => ['required', 'string', 'email'],
-            'password' => ['required', 'string'],
+          'email' => ['required', 'string', 'email'],
+          'password' => ['required', 'string'],
         ];
     }
 
@@ -37,16 +37,16 @@ class LoginRequest extends FormRequest
      *
      * @throws \Illuminate\Validation\ValidationException
      */
-    public function authenticate(string $guard = null): void
+    public function authenticate(): void
     {
         $this->ensureIsNotRateLimited();
 
-        if(! Auth::guard($guard)->attempt($this->only('email', 'password'), $this->boolean('remember'))) {
-            RateLimiter::hit($this->throttleKey());
+        if(! Auth::guard('admin')->attempt($this->only('email', 'password'))) {
+          RateLimiter::hit($this->throttleKey());
 
-            throw ValidationException::withMessages([
-                'email' => trans('auth.failed'),
-            ]);
+          throw ValidationException::withMessages([
+            'email' => trans('auth.failed'),
+          ]);
         }
 
         RateLimiter::clear($this->throttleKey());

@@ -7,11 +7,14 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Laravel\Cashier\Billable;
 
-class User extends Authenticatable
+class AdminUser extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+    protected $guard = 'admin';
+    
     /**
      * The attributes that are mass assignable.
      *
@@ -20,7 +23,7 @@ class User extends Authenticatable
     protected $fillable = [
         'lastname',
         'firstname',
-        'phone',
+        'username',
         'email',
         'role_id',
         'password',
