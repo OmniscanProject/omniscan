@@ -24,9 +24,8 @@ class RedirectIfAuthenticated
                 //Default route
                 $route = RouteServiceProvider::HOME;
                 //Admin route
-                if($guard === 'admin') {
-                    dd('fdfd');
-                    $route = redirect(RouteServiceProvider::ADMIN_DASHBOARD);
+                if($guard === 'admin' && Auth::guard($guard)->check()) {
+                    $route = RouteServiceProvider::ADMIN_DASHBOARD;
                 }
                 return redirect()->route($route);
             }

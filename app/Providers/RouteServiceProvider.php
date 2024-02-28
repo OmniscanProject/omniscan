@@ -17,13 +17,13 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    public const HOME = '/';
+    public const HOME = 'homepage';
 
-    public const CUSTOMER_DASHBOARD = 'admin.customer';
+    public const CUSTOMER_DASHBOARD = 'customer.dashboard.index';
 
     public const CUSTOMER_LOGIN = 'customer.login';
 
-    public const ADMIN_DASHBOARD = 'admin.dashboard';
+    public const ADMIN_DASHBOARD = 'admin.dashboard.index';
     
     public const ADMIN_LOGIN = 'admin.login';
 

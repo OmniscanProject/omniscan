@@ -76,7 +76,11 @@ Prevent `sub` and `sup` elements from affecting the line height in all browsers.
 1. Remove text indentation from table contents in Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=999088, https://bugs.webkit.org/show_bug.cgi?id=201297)
 2. Correct table border color inheritance in all Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=935729, https://bugs.webkit.org/show_bug.cgi?id=195016)
 3. Remove gaps between table borders by default.
-*//*
+*/table {
+  text-indent: 0; /* 1 */
+  border-color: inherit; /* 2 */
+  border-collapse: collapse; /* 3 */
+}/*
 1. Change the font styles in all browsers.
 2. Remove the margin in Firefox and Safari.
 3. Remove default padding in all browsers.
@@ -136,7 +140,8 @@ h3,
 p {
   margin: 0;
 }
-ul {
+ul,
+menu {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -276,6 +281,34 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
 }[type='checkbox']:indeterminate:hover,[type='checkbox']:indeterminate:focus {
   border-color: transparent;
   background-color: currentColor;
+}[type='file'] {
+  background: unset;
+  border-color: inherit;
+  border-width: 0;
+  border-radius: 0;
+  padding: 0;
+  font-size: unset;
+  line-height: inherit;
+}[type='file']:focus {
+  outline: 1px auto inherit;
+}input[type=file]::file-selector-button {
+  color: white;
+  background: #1F2937;
+  border: 0;
+  font-weight: 500;
+  font-size: 0.875rem;
+  cursor: pointer;
+  padding-top: 0.625rem;
+  padding-bottom: 0.625rem;
+  padding-left: 2rem;
+  padding-right: 1rem;
+  margin-inline-start: -1rem;
+  margin-inline-end: 1rem;
+}input[type=file]::file-selector-button:hover {
+  background: #374151;
+}:is([dir=rtl]) input[type=file]::file-selector-button {
+  padding-right: 2rem;
+  padding-left: 1rem;
 }:root {
     --color-primary: rgb(52, 52, 76);
     --color-secondary: rgb(30, 30, 62);
@@ -379,6 +412,8 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
   inset-inline-start: 0px;
 }.top-0 {
   top: 0px;
+}.z-10 {
+  z-index: 10;
 }.z-30 {
   z-index: 30;
 }.z-40 {
@@ -440,6 +475,8 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
   display: flex;
 }.inline-flex {
   display: inline-flex;
+}.table {
+  display: table;
 }.hidden {
   display: none;
 }.h-16 {
@@ -528,6 +565,8 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
   justify-content: space-between;
 }.gap-4 {
   gap: 1rem;
+}.gap-1 {
+  gap: 0.25rem;
 }.space-x-3 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-x-reverse: 0;
   margin-right: calc(0.75rem * var(--tw-space-x-reverse));
@@ -630,9 +669,6 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
 }.px-6 {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
-}.py-1 {
-  padding-top: 0.25rem;
-  padding-bottom: 0.25rem;
 }.py-12 {
   padding-top: 3rem;
   padding-bottom: 3rem;
@@ -661,6 +697,8 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
   padding-top: 0.75rem;
 }.pt-6 {
   padding-top: 1.5rem;
+}.text-left {
+  text-align: left;
 }.text-center {
   text-align: center;
 }.text-start {
@@ -688,6 +726,8 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
   font-weight: 500;
 }.font-semibold {
   font-weight: 600;
+}.font-bold {
+  font-weight: 700;
 }.uppercase {
   text-transform: uppercase;
 }.leading-5 {

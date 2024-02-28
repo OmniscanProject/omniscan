@@ -5,11 +5,19 @@ use Auth;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\RedirectResponse;
 use App\Providers\RouteServiceProvider;
 use App\Http\Requests\Admin\Auth\LoginRequest;
 
 class AuthenticatedSessionController extends Controller
 {
+
+    // public function __construct()
+    // {
+    //     $this->middleware("admin");
+    // }
+
+
     /**
      * Display the login view.
      */
@@ -23,13 +31,12 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request)
     {
-            $validated = $request->validated();
+        $validated = $request->validated();
 
-            $request->authenticate();
+        $request->authenticate();
 
-            $request->session()->regenerate();
+        $request->session()->regenerate();
 
-            // dd(redirect()->route(RouteServiceProvider::ADMIN_DASHBOARD));
         return redirect()->route(RouteServiceProvider::ADMIN_DASHBOARD);
     }
 
@@ -38,8 +45,10 @@ class AuthenticatedSessionController extends Controller
      */
     public function destroy(Request $request): RedirectResponse
     {
-        Auth::guard('admin')->logout();
-
-        return redirect()->route('auth.admin.login');
+        if(Auth::guard('admin')->check()) // this means that the admin was logged in.
+        {
+            Auth::guard('admin')->logout();
+            return redirect()->route('admin.login');
+        }
     }
 }

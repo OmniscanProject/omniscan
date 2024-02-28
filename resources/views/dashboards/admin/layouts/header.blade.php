@@ -1,10 +1,9 @@
-<header class="sticky top-0 bg-white dark:bg-[#182235] border-b border-slate-200 dark:border-slate-700 z-30">
+<header class="relative top-0 bg-white dark:bg-[#182235] border-b border-slate-600 dark:border-slate-700 z-10">
     <div class="px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-16 -mb-px">
 
             <!-- Header: Left side -->
-            <div class="flex">
-                
+            <div class="flex">     
                 <!-- Hamburger button -->
                 <button
                     class="text-slate-500 hover:text-slate-600 lg:hidden"
@@ -23,10 +22,25 @@
             </div>
 
             <!-- Header: Right side -->
-            <div class="flex items-center space-x-3">
-                <!-- User button -->
-                {{-- <x-dropdown-profile align="right" /> --}}
-            </div>
+            @if(Auth::guard('admin')->user())
+                @php
+                    $user = Auth::guard('admin')->user();
+                @endphp
+                <div class="flex items-center space-x-3">
+                    <x-dropdown-sub-menu>
+                        <x-slot name="trigger">{{$user->username}}</x-slot>
+                        <x-slot name="content">
+                            <form id="logout-form" action="{{ route('admin.logout') }}" method="POST" style="display: none;">
+                                {{ csrf_field() }}
+                            </form>
+                            <a 
+                                href="{{ route('admin.logout') }}"
+                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
+                            >{{ __('Logout') }}</a>
+                        </x-slot>
+                    </x-dropdown-sub-menu>
+                </div>
+            @endif
 
         </div>
     </div>

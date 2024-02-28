@@ -1,4 +1,4 @@
-@props(['align' => 'right', 'width' => '48', 'contentClasses' => 'py-1 bg-white dark:bg-gray-700'])
+@props(['align' => 'right', 'width' => '48', 'contentClasses' => 'p-2 bg-white dark:bg-gray-700'])
 
 @php
 switch ($align) {
@@ -22,8 +22,13 @@ switch ($width) {
 @endphp
 
 <div class="relative" x-data="{ open: false }" @click.outside="open = false" @close.stop="open = false">
-    <div @click="open = ! open">
+    <div @click="open = ! open" class="flex items-center justify-between">
         {{ $trigger }}
+        <div class="flex shrink-0 ml-2 2xl:opacity-100 duration-200">
+            <svg class="w-3 h-3 shrink-0 ml-1 fill-current text-slate-400 :class="open ? 'rotate-180' : 'rotate-0'" viewBox="0 0 12 12">
+                <path d="M5.9 11.4L.5 6l1.4-1.4 4 4 4-4L11.3 6z" />
+            </svg>
+        </div>
     </div>
 
     <div x-show="open"
@@ -36,7 +41,7 @@ switch ($width) {
             class="absolute z-50 mt-2 {{ $width }} rounded-md shadow-lg {{ $alignmentClasses }}"
             style="display: none;"
             @click="open = false">
-        <div class="rounded-md ring-1 ring-black ring-opacity-5 {{ $contentClasses }}">
+        <div class="rounded-md ring-1 ring-black ring-opacity-5 flex flex-col gap-1 {{ $contentClasses }}">
             {{ $content }}
         </div>
     </div>

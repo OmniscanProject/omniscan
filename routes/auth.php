@@ -58,7 +58,7 @@ Route::middleware('auth:customer')->group(function () {
     Route::put('password', [PasswordController::class, 'update'])->name('password.update');
 
     Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
-                ->name('logout');
+        ->name('logout');
 });
 
 
@@ -66,9 +66,8 @@ Route::middleware('auth:customer')->group(function () {
 Route::prefix(env('ADMIN_URL', 'localhost'))->group(function() {
     Route::get('login', [AdminAuthenticatedSessionController::class, 'create'])
     ->name('admin.login');
-    
     Route::post('login', [AdminAuthenticatedSessionController::class, 'store']);
-  
+    
     Route::post('logout', [AdminAuthenticatedSessionController::class, 'destroy'])
         ->name('admin.logout');
 });

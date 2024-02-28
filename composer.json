@@ -60,7 +60,8 @@
         ],
         "php-fixer": [
             "./vendor/bin/phpcbf -p app/"
-        ]
+        ],
+        "post-install-cmd": ["@php artisan storage:link --quiet"]
     },
     "extra": {
         "laravel": {

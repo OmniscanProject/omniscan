@@ -22,6 +22,11 @@ use App\Http\Controllers\Admin\SubscriptionController;
 */
 
 Route::group(['prefix' => env('ADMIN_URL', 'localhost'), 'middleware' => ['auth:admin']], function() {
+  Route::get('', function () {
+    return redirect()->route('admin.dashboard.index');
+  })
+  ->name('admin.redirect');
+
   Route::get('dashboard', [DashboardController::class, 'index'])
   ->name('admin.dashboard.index');
 
