@@ -10,7 +10,8 @@ use Laravel\Sanctum\HasApiTokens;
 use Laravel\Cashier\Billable;
 
 class Customer extends Authenticatable
-{   
+{
+   
     use HasApiTokens, HasFactory, Notifiable, Billable;
 
     protected $guard = 'customer';

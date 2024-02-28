@@ -16,9 +16,11 @@ class RoleSeeder extends Seeder
         $roles = ['customer','engineer','administrator'];
 
         foreach($roles as $role) {
-            DB::table('roles')->insert([
+            DB::table('roles')->insert(
+                [
                 'name' => $role
-            ]);
+                ]
+            );
         }
     }
 }

@@ -10,25 +10,26 @@ use Illuminate\Contracts\View\View;
 class ProductList extends Component
 {
 
-  public $products;
+    public $products;
 
-  /**
-   * Create a new component instance.
-   */
-  public function __construct(
-    array $products
-    )
-  {
-    $this->products = $products;
-  }
+    /**
+     * Create a new component instance.
+     */
+    public function __construct(
+        array $products
+    ) {
+        $this->products = $products;
+    }
 
-  /**
-   * Get the view / contents that represent the component.
-   */
-  public function render(): View|Closure|array
-  {
-    return view('components.product-list', [
-      'products' => $this->products
-    ]);
-  }
+    /**
+     * Get the view / contents that represent the component.
+     */
+    public function render(): View|Closure|array
+    {
+        return view(
+            'components.product-list', [
+            'products' => $this->products
+            ]
+        );
+    }
 }

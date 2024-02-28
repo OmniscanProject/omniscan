@@ -20,10 +20,9 @@ class DashboardController extends Controller
 
     /**
      * Show the application dashboard.
-     *
      */
     public function index(): View
     {
-      return view('dashboards.admin.pages.index');
+        return view('dashboards.admin.pages.index');
     }
 }

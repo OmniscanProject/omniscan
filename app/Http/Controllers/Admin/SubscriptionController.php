@@ -10,10 +10,9 @@ class SubscriptionController extends Controller
 {
     /**
      * Show the application dashboard.
-     *
      */
     public function index(): View
     {
-      return view('dashboards.admin.pages.sales.subscriptions.list');
+        return view('dashboards.admin.pages.sales.subscriptions.list');
     }
 }

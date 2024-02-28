@@ -24,16 +24,15 @@ class Product extends Model
         'description',
         'slug',
         'stripe_product'
-    ];
+     ];
 
-    /**
-     * Write code on Method
-     *
-     * @return response()
-     */
-
-    public function getRouteKeyName()
-    {
-        return 'slug';
-    }
+     /**
+      * Write code on Method
+      *
+      * @return response()
+      */
+     public function getRouteKeyName()
+     {
+         return 'slug';
+     }
 }

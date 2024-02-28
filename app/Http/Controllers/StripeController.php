@@ -13,7 +13,7 @@ class StripeController extends CashierController
     /**
      * Crée une session de paiement avec Stripe Checkout.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\JsonResponse
      */
     public function createCheckoutSession(Request $request)
@@ -23,7 +23,8 @@ class StripeController extends CashierController
 
         Stripe::setApiKey(config('services.stripe.secret'));
 
-        $session = Session::create([
+        $session = Session::create(
+            [
             'payment_method_types' => ['card'],
             'line_items' => [[
                 'price' => $priceId,
@@ -33,7 +34,8 @@ class StripeController extends CashierController
             'success_url' => route('checkout.success'),
             'cancel_url' => route('checkout.cancel'),
             'customer' => $user->stripe_id,
-        ]);
+            ]
+        );
 
         return response()->json(['sessionId' => $session->id]);
     }

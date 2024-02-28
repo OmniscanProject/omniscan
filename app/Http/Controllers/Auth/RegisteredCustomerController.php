@@ -30,22 +30,26 @@ class RegisteredCustomerController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
-        $request->validate([
+        $request->validate(
+            [
             'lastname' => ['required', 'string', 'max:255'],
             'firstname' => ['required', 'string', 'max:255'],
             'phone' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.Customer::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
-        ]);
+            ]
+        );
 
-        $customer = Customer::create([
+        $customer = Customer::create(
+            [
             'lastname' => $request->lastname,
             'firstname' => $request->firstname,
             'phone' => $request->phone,
             'email' => $request->email,
             'role_id' => 1,
             'password' => Hash::make($request->password),
-        ]);
+            ]
+        );
 
         event(new Registered($customer));
 

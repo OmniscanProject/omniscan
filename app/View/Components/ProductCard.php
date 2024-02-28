@@ -15,8 +15,7 @@ class ProductCard extends Component
      */
     public function __construct(
         $product
-    )
-    {
+    ) {
         $this->product = $product;
     }
 

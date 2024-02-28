@@ -10,10 +10,9 @@ class ScriptController extends Controller
 {
     /**
      * Show the application dashboard.
-     *
      */
     public function index(): View
     {
-      return view('dashboards.admin.pages.scripts.list');
+        return view('dashboards.admin.pages.scripts.list');
     }
 }

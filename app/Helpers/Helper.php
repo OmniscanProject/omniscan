@@ -4,8 +4,8 @@
   
  use Laravel\Cashier\Events\WebhookReceived;
   
- class Helper
- {
+class Helper
+{
 
     public static function transformToSlug(string $text): string
     {
@@ -33,4 +33,4 @@
 
         return $text;
     }
- }
+}

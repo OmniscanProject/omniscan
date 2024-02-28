@@ -8,12 +8,14 @@ class CreateReportHistoryTable extends Migration
 {
     public function up(): void
     {
-        Schema::create('report_history', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('reports_id');
-            // Add other columns here
-            $table->foreign('reports_id')->references('id')->on('reports');
-        });
+        Schema::create(
+            'report_history', function (Blueprint $table) {
+                $table->id();
+                $table->unsignedBigInteger('reports_id');
+                // Add other columns here
+                $table->foreign('reports_id')->references('id')->on('reports');
+            }
+        );
     }
 
     public function down(): void

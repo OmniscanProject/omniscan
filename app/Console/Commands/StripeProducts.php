@@ -66,7 +66,8 @@ class StripeProducts extends Command
             }
             // now we need to add the existing prices for the products
             foreach($prices->data as $price):
-                if($price->active == false) continue; // skip all archived prices 
+                if($price->active == false) { continue; // skip all archived prices 
+                }
     
                 $key = $price->product;
                 $items[$key]['subscription']['id'] = $price->id;
@@ -79,9 +80,11 @@ class StripeProducts extends Command
             foreach($items as $item) {
                 
 
-                $product = Product::firstOrNew([
+                $product = Product::firstOrNew(
+                    [
                     'stripe_product' => $item['id']
-                ]);
+                    ]
+                );
 
                 $product->name = $item['name'] ?? null;
                 $product->price = $item['subscription']['price'] ?? null;
