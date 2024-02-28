@@ -8,6 +8,9 @@ import 'flowbite';
 
 import '../scss/app.scss';
 
+import './singular/dashboard_admin';
+
+
 import { createApp } from 'vue';
 
 /**

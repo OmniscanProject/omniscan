@@ -24,6 +24,7 @@ mix
 })
 .sass('resources/scss/app.scss', 'public/css')
 .sass('resources/scss/singular/homepage.scss', 'public/css')
+.sass('resources/scss/singular/dashboard_admin.scss', 'public/css')
 .postCss('resources/css/app.css', 'public/css')
 .purgeCss({
     enabled: true,
