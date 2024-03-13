@@ -25,7 +25,7 @@
         </div>
     </div>
 
-
+    @include('components.search-website')
     @include('pages.homepage.products')
     @include('layouts.footer')
 </x-app-layout>

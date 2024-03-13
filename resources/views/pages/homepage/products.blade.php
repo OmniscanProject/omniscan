@@ -3,8 +3,7 @@
 @endphp
 
 
-<section id='subscriptions' class=" mt-10">
-    <h2>{{__('Subscriptions')}}</h2>
+<section id='subscriptions'>
     <div>
         <x-product-list :products="$products->toArray()"/>
     </div>

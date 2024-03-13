@@ -51,16 +51,16 @@ $tiers = [
             
         </div>
         <p class="mx-auto mt-6 max-w-2xl text-center text-lg leading-8 text-gray-600">
-            Toutes nos offres de cyber sécurité ici
+            Selectionnez une offre selon vos besoins
         </p>
-        <div class="mt-16 flex justify-center">
+       <!--<div class="mt-16 flex justify-center">
             <div class="grid grid-cols-2 gap-x-1 rounded-full p-1 text-center text-xs font-semibold leading-5 ring-1 ring-inset ring-gray-200">
                 <input type="radio" name="payment_frequency" id="monthly" value="monthly" class="hidden">
                 <input type="radio" name="payment_frequency" id="annually" value="annually" class="hidden">
                 <label for="monthly" class="cursor-pointer rounded-full px-2.5 py-1 bg-indigo-600 text-white">Monthly</label>
                 <label for="annually" class="cursor-pointer rounded-full px-2.5 py-1 text-gray-500">Annually</label>
             </div>
-        </div>
+        </div> !-->
         <div class="isolate mx-auto mt-10 grid max-w-md grid-cols-1 gap-8 md:max-w-2xl md:grid-cols-2 lg:max-w-4xl xl:mx-0 xl:max-w-none xl:grid-cols-3">
             @foreach($tiers as $tier)
                 <div class="{{ $tier['mostPopular'] ? 'ring-2 ring-indigo-600' : 'ring-1 ring-gray-200' }} rounded-3xl p-8">
