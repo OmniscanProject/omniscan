@@ -27,11 +27,11 @@
       }
       50% {
         transform: scale(1.05);
-        opacity: 0.7;
+        opacity: 0.8;
       }
     }
     .animate-pulse {
-      animation: pulse 2s infinite;
+      animation: pulse 1s infinite;
     }
   </style>
  
