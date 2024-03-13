@@ -33,6 +33,8 @@ return [
 
     'stripe' => [
         'model' => \App\Models\Customer::class,
+        'key' => env('STRIPE_KEY'),
+        'secret' => env('STRIPE_SECRET'),
     ],
 
 ];

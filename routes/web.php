@@ -20,7 +20,6 @@ Route::get('/', function () {
     return view('pages.homepage');
 })->name('homepage');
 
-
 Route::post('language-switch', [LanguageController::class, 'switch'])->name('language.switch');
 
 require __DIR__.'/auth.php';

@@ -52,13 +52,12 @@ class StripeProducts extends Command
                 $items[$key]['tier'] = $tier;
                 $items[$key]['name'] = $product->name;
                 $items[$key]['description'] = $product->description;
-                $items[$key]['image'] = $product->images[0];
+                $items[$key]['image'] = !empty($product->images) ? $product->images[0] : null; // Check if images array is empty
                 $items[$key]['active'] = $product->active ?? 0;
                 $items[$key]['sku'] = $product->metadata->sku;
                 $items[$key]['metakey'] = $product->metadata;
             endforeach;
-
-
+            
             $prices = $stripe->prices->all();
             if(empty($prices)) {
                 Log::channel('stripe-products')->info('No price(s) found from stripe api');
