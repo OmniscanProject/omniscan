@@ -23,7 +23,9 @@ class Product extends Model
         'image',
         'description',
         'slug',
-        'stripe_product'
+        'stripe_product',
+        'most-popular',
+        'features'
     ];
 
     /**

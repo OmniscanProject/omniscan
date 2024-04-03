@@ -18,6 +18,8 @@ class CreateProductsTable extends Migration
             $table->string('description')->nullable();
             $table->string('image')->nullable();
             $table->string('sku');
+            $table->boolean('most_popular')->nullable();
+            $table->jsonb('features')->nullable();
             $table->timestamps();
         });
     }
