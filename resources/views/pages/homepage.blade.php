@@ -26,5 +26,7 @@
 
     @include('components.search-website')
     @include('pages.homepage.products')
+    @include('components.features')
+    @include('components.testimonial')
     @include('layouts.footer')
 </x-app-layout>

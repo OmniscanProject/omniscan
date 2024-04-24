@@ -24,7 +24,7 @@
 @endphp
 
 
-<section id='subscriptions' class="mt-10">
+<section id='subscriptions'>
     <div>
         <x-product-list :products="$products->toArray()"/>
     </div>
