@@ -16,7 +16,7 @@ class ProductList extends Component
      * Create a new component instance.
      */
     public function __construct(
-        array $products
+        array|object $products
     ) {
         $this->products = $products;
     }

@@ -11,13 +11,12 @@ class CreateProductsTable extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('price');
             $table->string('slug');
             $table->tinyInteger('active')->default('1');
-            $table->string('stripe_product');
             $table->string('description')->nullable();
+            $table->string('stripe_product')->unique()->index();
             $table->string('image')->nullable();
-            $table->string('sku');
+            $table->string('sku')->nullable();
             $table->boolean('most_popular')->nullable();
             $table->jsonb('features')->nullable();
             $table->timestamps();
