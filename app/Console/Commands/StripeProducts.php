@@ -33,6 +33,7 @@ class StripeProducts extends Command
     {
         Log::channel('stripe-products')->info('---'.'start handle cron function from : '.__CLASS__.'---');
         try {
+           
 
             $stripe = Cashier::stripe();
 
@@ -56,6 +57,8 @@ class StripeProducts extends Command
                 $items[$key]['active'] = $product->active ?? 0;
                 $items[$key]['sku'] = $product->metadata->sku;
                 $items[$key]['metakey'] = $product->metadata;
+                $items[$key]['features'] = !empty($product->metadata->features) ? json_encode($product->metadata->features) : null;
+
             endforeach;
             
             $prices = $stripe->prices->all();
@@ -78,12 +81,9 @@ class StripeProducts extends Command
             
             foreach($items as $item) {
                 
-
-                $product = Product::firstOrNew(
-                    [
+                $product = Product::firstOrNew([
                     'stripe_product' => $item['id']
-                    ]
-                );
+                ]);
 
                 $product->name = $item['name'] ?? null;
                 $product->price = $item['subscription']['price'] ?? null;
@@ -93,6 +93,7 @@ class StripeProducts extends Command
                 $product->description = $item['description'] ?? null;
                 $product->slug = Helper::transformToSlug($item['name']) ?? null;
                 $product->stripe_product = $item['id'] ?? null;
+                $product->features = $item['features'] ?? null;
 
                 $product->save();
             }

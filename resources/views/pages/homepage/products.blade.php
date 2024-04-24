@@ -2,7 +2,7 @@
     $products = \App\Models\Product::where('active', 1)->get();
 @endphp
 
-<section id='subscriptions' class="mt-10">
+{{-- <section id='subscriptions' class="mt-10">
     <h2>{{__('Subscriptions')}}</h2>
     <div>
         @foreach ($products as $product)
@@ -16,5 +16,16 @@
                 <button type="submit">Acheter</button>
             </form>
         @endforeach
+    </div>
+</section> --}}
+
+@php
+    $products = \App\Models\Product::where('active', 1)->get();
+@endphp
+
+
+<section id='subscriptions' class="mt-10">
+    <div>
+        <x-product-list :products="$products->toArray()"/>
     </div>
 </section>
