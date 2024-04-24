@@ -1,4 +1,4 @@
-<div class="bg-white flex flex-col items-center">
+<!-- <div class="bg-white flex flex-col items-center">
     <label for="company-website" class="text-3xl font-semibold leading-7 text-indigo-600">
       Testez & obtenez les vulnérabilités de votre site web
     </label>
@@ -18,20 +18,25 @@
       </div>
     </div>
   </div>
-  
-  <style>
-    @keyframes pulse {
-      0%, 100% {
-        transform: scale(1);
-        opacity: 1;
-      }
-      50% {
-        transform: scale(1.05);
-        opacity: 0.8;
-      }
-    }
-    .animate-pulse {
-      animation: pulse 1s infinite;
-    }
-  </style>
+-->
+
+<div class="search-section">
+  <div class="left-container">
+<div>
+  <h1>Testez & obtenez les vulnérabilités de votre site web !</h1>
+ <p>commencez votre essaie gratuit !</p>
+ <div class="search-container">
+  <input type="text" class="search-input" placeholder="https://votre-site.com" />
+  <button class="search-button">
+    <img src="{{ asset('assets/search.svg') }}" alt="">
+  </button>
+</div>
+</div>
+  </div>
+  <div class="right-container">
+    <div class="container-img">
+      <img src="{{ asset('assets/computer.svg') }}" alt="computer">
+    </div>
+  </div>
+</div>
  

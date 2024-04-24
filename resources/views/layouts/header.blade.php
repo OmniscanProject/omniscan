@@ -1,4 +1,4 @@
-<header class="bg-white">
+{{-- <header class="bg-white">
     <nav class="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
         <div class="flex mr-8">
             <a href="#" class="-m-1.5 p-1.5">
@@ -18,7 +18,7 @@
             </button>
         </div>
         <div class="hidden lg:flex lg:gap-x-12">
-            {{-- Iterate over navigation items --}}
+          
             <a href="/accueil" class="text-sm font-semibold leading-6 text-gray-900">Accueil</a>
             <a href="/a-propos" class="text-sm font-semibold leading-6 text-gray-900">À propos</a>
             <a href="/services" class="text-sm font-semibold leading-6 text-gray-900">Services</a>
@@ -51,7 +51,7 @@
                 </a>
             </div>
         @endif
-        {{-- @include('components.language-switcher') --}}
+        
 
     </nav>
     <div class="lg:hidden" id="mobile-menu" hidden>
@@ -91,6 +91,50 @@
             </a>
         @endif
     </div>
+</header>--}}
+
+<header class="bg-white shadow">
+    <nav class="container mx-auto px-6 py-3 flex justify-between items-center h-36">
+        <a href="{{ url('/') }}" class="flex items-center">
+            <img src="{{ asset('assets/logo.svg') }}" alt="omniscan" class="h-8"> {{-- Taille du logo ajustable avec la classe h-* --}}
+            {{-- Insérer d'autres éléments de logo si nécessaire --}}
+        </a>
+        <div class="hidden md:flex space-x-10">
+            <a href="{{ url('/') }}" class="text-gray-950 py-2 font-semibold">Accueil</a>
+            <a href="{{ url('/a-propos') }}" class="text-gray-950 py-2 	font-semibold">À propos</a>
+            <a href="{{ url('/services') }}" class="text-gray-950  py-2 font-semibold">Services</a>
+            <a href="{{ url('/contact') }}" class="text-gray-950 py-2 font-semibold">Contact</a>
+        </div>
+        <div class="hidden md:flex space-x-4">
+            @if (!Auth::guard('customer')->user())
+            <a href="{{ url('/register') }}" class="text-gray-950 py-2 font-semibold">Inscription</a>
+            @endif
+            @if (!Auth::guard('customer')->user())
+                <a href="{{ url('/login') }}" class="text-gray-950 py-2 font-semibold">Connexion</a>
+        @endif
+        @if (Auth::guard('customer')->user())
+        <form method="POST" action="{{ route('logout') }}">
+            @csrf
+            <a class="text-gray-950  py-2 font-semibold"
+                :href="route('logout')"
+                onclick="event.preventDefault();
+                        this.closest('form').submit();">
+                {{ __('Log Out') }}
+            </a>
+        </form>
+    @endif
+
+           
+        </div>
+        {{-- Mobile menu button --}}
+        <div class="md:hidden">
+            <button type="button" class="text-gray-500 hover:text-gray-600 focus:outline-none focus:text-gray-600" aria-label="toggle menu">
+                <svg viewBox="0 0 24 24" class="h-6 w-6 fill-current">
+                    {{-- SVG for hamburger menu --}}
+                </svg>
+            </button>
+        </div>
+    </nav>
 </header>
 
 <script>

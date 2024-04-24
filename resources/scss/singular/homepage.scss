@@ -1,0 +1,109 @@
+.search-section {
+    display: flex;
+    height: 60vh;
+
+    .right-container,
+    .left-container {
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    .right-container {
+        .container-img {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            img {
+                height: 80%;
+                width: 80%;
+            }
+        }
+    }
+
+    .left-container {
+
+        h1 {
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        p {
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+
+        .search-container {
+            display: flex;
+            align-items: center;
+            background-color: #fff; 
+            border: 1px solid black; 
+            border-radius: 20px; 
+            padding: 5px; 
+          
+            .search-input {
+              flex-grow: 1;
+              border: none;
+              padding: 10px 15px;
+              border-radius: 20px;
+              outline: none;
+          
+              &:placeholder {
+                color: #999; 
+              }
+            }
+          
+            .search-button {
+              background-color: transparent;
+              border: none;
+              cursor: pointer;
+              padding: 5px 8px;
+              border-radius: 20px;
+              margin-left: 5px;
+          
+              &:hover {
+                background-color: #eee; 
+              }
+            }
+          }
+    }
+}
+
+.features-section {
+    height: 45vh;
+    background-color: white;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .features-img-container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        padding-top: 5%;
+
+        img {
+            max-width: 200px;
+            max-height: 2000px;
+            border-radius: 50%;
+            margin-left: 50px;
+        }
+
+    }
+
+    .features-text-container {
+        padding-top: 50px;
+
+        p {
+            text-align: center;
+
+        }
+    }
+
+
+
+}
