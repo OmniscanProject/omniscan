@@ -17,7 +17,6 @@ class Product extends Model
 
      protected $fillable = [
         'name',
-        'price',
         'sku',
         'image',
         'description',
@@ -35,5 +34,10 @@ class Product extends Model
      public function getRouteKeyName()
      {
          return 'slug';
+     }
+
+     public function prices()
+     {
+         return $this->hasMany(ProductPrice::class, 'stripe_product', 'stripe_product');
      }
 }

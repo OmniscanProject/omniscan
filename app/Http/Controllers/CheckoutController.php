@@ -14,12 +14,12 @@ class CheckoutController
     public function checkout(Request $request)
     {
         try {
-            $priceId = $request->input('priceId');
+            $priceId = $request->input('price_id');
             $user = Auth::user();
             $customerId = $user->stripe_id;
             Stripe::setApiKey(config('services.stripe.secret'));
             $session = Session::create([
-                'success_url' => route('checkoutSucess') . "?session.id={CHECKOUT_SESSION_ID}",
+                'success_url' => route('checkout.success') . "?session.id={CHECKOUT_SESSION_ID}",
                 'cancel_url' => route('homepage'),
                 'mode' => 'subscription',
                 'customer' => $customerId,
@@ -30,7 +30,6 @@ class CheckoutController
             ]);
             return Redirect::to($session->url);
         } catch (\Exception $e) {
-            dd($e);
             return redirect()->back()->with('error', $e->getMessage());
         }
     }

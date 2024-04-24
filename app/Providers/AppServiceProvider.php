@@ -7,6 +7,10 @@ use Laravel\Cashier\Cashier;
 
 use Illuminate\Support\ServiceProvider;
 
+use App\Models\Cashier\Subscription;
+use App\Models\Cashier\SubscriptionItem;
+
+
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -22,6 +26,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        // Cashier::useCustomerModel(Customer::class);
+        Cashier::useSubscriptionModel(Subscription::class);
+        Cashier::useSubscriptionItemModel(SubscriptionItem::class);
+
+        Cashier::calculateTaxes();
+        Cashier::useCustomerModel(Customer::class);
     }
 }
