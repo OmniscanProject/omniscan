@@ -15,7 +15,6 @@
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
         <link rel="stylesheet" href="{{ asset('css/dashboard_admin.css') }}">
-        @livewireStyles 
 
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
@@ -27,6 +26,10 @@
         x-data="{ sidebarOpen: false, sidebarExpanded: localStorage.getItem('sidebar-expanded') == 'true' }"
         x-init="$watch('sidebarExpanded', value => localStorage.setItem('sidebar-expanded', value))"    
     >
+
+        <div class="">
+            @include('components.flash-message')
+        </div>
 
         <script>
             if (localStorage.getItem('sidebar-expanded') == 'true') {
@@ -45,7 +48,7 @@
                     @include('dashboards.admin.layouts.header')
                     {{-- <x-admin.header /> --}}
 
-                    <main class="grow">
+                    <main class="grow p-6">
                         {{ $slot }}
                     </main>
 

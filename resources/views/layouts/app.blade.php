@@ -14,15 +14,26 @@
         
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+        @livewireStyles
+
 
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+        @livewireScripts
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
             @include('layouts.header')
 
+            <div class="flash-messages">
+                @if (session()->has('message'))
+                    <div class="alert alert-success">
+                        {{ session('message') }}
+                    </div>
+                @endif
+            </div>
+            
             <!-- Page Content -->
             <main>
                 {{ $slot }}

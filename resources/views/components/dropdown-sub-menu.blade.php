@@ -22,7 +22,7 @@ switch ($width) {
 @endphp
 
 <div class="relative" x-data="{ open: false }" @click.outside="open = false" @close.stop="open = false">
-    <div @click="open = ! open" class="flex items-center justify-between">
+    <div @clic.="open = ! open" class="flex items-center justify-between">
         {{ $trigger }}
         <div class="flex shrink-0 ml-2 2xl:opacity-100 duration-200">
             <svg class="w-3 h-3 shrink-0 ml-1 fill-current text-slate-400 :class="open ? 'rotate-180' : 'rotate-0'" viewBox="0 0 12 12">

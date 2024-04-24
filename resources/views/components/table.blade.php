@@ -1,4 +1,4 @@
-<table class="w-full whitespace-no-wrap">
+<table class="table-entity w-full whitespace-no-wrap">
     <thead>
         <tr class="text-left font-bold">
             {{$header}}

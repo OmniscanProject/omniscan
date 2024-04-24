@@ -2,10 +2,11 @@
 
 namespace Database\Seeders;
 
+use App\Models\Role;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class AdminUserSeeder extends Seeder
 {
@@ -14,6 +15,7 @@ class AdminUserSeeder extends Seeder
      */
     public function run(): void
     {
+
         DB::table('admin_users')->insert(
             [
             'username' => 'superadmin',
@@ -21,7 +23,7 @@ class AdminUserSeeder extends Seeder
             'lastname' => 'superadmin',
             'email' => 'super@admin.com',
             'password' => Hash::make('superadmin'),
-            'role_id' => 3
+            'role_id' => Role::where('name','administrator')->first()->id
             ]
         );
     }

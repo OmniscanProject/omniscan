@@ -57,6 +57,21 @@ Route::group(['prefix' => env('ADMIN_URL', 'localhost'), 'middleware' => ['auth:
     Route::group(['prefix' => 'users'], function() {
       Route::get('', [UserController::class, 'index'])
       ->name('admin.dashboard.users.index');
+
+      Route::get('delete/{id}', [UserController::class, 'destroy'])
+      ->name('admin.dashboard.users.destroy');
+
+      Route::get('show/{id}', [UserController::class, 'show'])
+      ->name('admin.dashboard.users.show');
+
+      Route::put('edit/{id}', [UserController::class, 'update'])
+      ->name('admin.dashboard.users.update');
+
+      Route::get('create', [UserController::class, 'create'])
+      ->name('admin.dashboard.users.create');
+
+      Route::post('store', [UserController::class, 'store'])
+      ->name('admin.dashboard.users.store');
     });
   }); 
 

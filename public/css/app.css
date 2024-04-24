@@ -1,5 +1,5 @@
 /*
-! tailwindcss v3.3.6 | MIT License | https://tailwindcss.com
+! tailwindcss v3.4.1 | MIT License | https://tailwindcss.com
 *//*
 1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)
 2. Allow adding a border to an element by just adding a border-width. (https://github.com/tailwindcss/tailwindcss/pull/116)
@@ -20,15 +20,17 @@
 4. Use the user's configured `sans` font-family by default.
 5. Use the user's configured `sans` font-feature-settings by default.
 6. Use the user's configured `sans` font-variation-settings by default.
+7. Disable tap highlights on iOS
 */html {
   line-height: 1.5; /* 1 */
   -webkit-text-size-adjust: 100%; /* 2 */
   -moz-tab-size: 4; /* 3 */
   -o-tab-size: 4;
      tab-size: 4; /* 3 */
-  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; /* 4 */
+  font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; /* 4 */
   font-feature-settings: normal; /* 5 */
   font-variation-settings: normal; /* 6 */
+  -webkit-tap-highlight-color: transparent; /* 7 */
 }/*
 1. Remove the margin in all browsers.
 2. Inherit line-height from `html` so users can set them as a class directly on the `html` element.
@@ -270,7 +272,7 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
   -webkit-print-color-adjust: exact;
           print-color-adjust: exact;
 }[type='checkbox']:indeterminate {
-  background-image: url("data:image/svg+xml,%3csvg aria-hidden='true' xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 16 12'%3e %3cpath stroke='white' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M1 5.917 5.724 10.5 15 1.5'/%3e %3c/svg%3e");
+  background-image: url("data:image/svg+xml,%3csvg aria-hidden='true' xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 16 12'%3e %3cpath stroke='white' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M0.5 6h14'/%3e %3c/svg%3e");
   background-color: currentColor;
   border-color: transparent;
   background-position: center;
@@ -447,6 +449,8 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
   margin-left: 0.5rem;
 }.ml-3 {
   margin-left: 0.75rem;
+}.mr-1 {
+  margin-right: 0.25rem;
 }.ms-2 {
   margin-inline-start: 0.5rem;
 }.ms-3 {
@@ -563,10 +567,12 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
   justify-content: center;
 }.justify-between {
   justify-content: space-between;
-}.gap-4 {
-  gap: 1rem;
+}.justify-around {
+  justify-content: space-around;
 }.gap-1 {
   gap: 0.25rem;
+}.gap-4 {
+  gap: 1rem;
 }.space-x-3 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-x-reverse: 0;
   margin-right: calc(0.75rem * var(--tw-space-x-reverse));
@@ -648,6 +654,8 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
   --tw-bg-opacity: 0.3;
 }.p-0 {
   padding: 0px;
+}.p-1 {
+  padding: 0.25rem;
 }.p-2 {
   padding: 0.5rem;
 }.p-4 {
@@ -669,6 +677,9 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
 }.px-6 {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
+}.py-1 {
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
 }.py-12 {
   padding-top: 3rem;
   padding-bottom: 3rem;
@@ -706,7 +717,7 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
 }.align-baseline {
   vertical-align: baseline;
 }.font-sans {
-  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }.text-base {
   font-size: 1rem;
   line-height: 1.5rem;
@@ -722,12 +733,12 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
 }.text-xs {
   font-size: 0.75rem;
   line-height: 1rem;
+}.font-bold {
+  font-weight: 700;
 }.font-medium {
   font-weight: 500;
 }.font-semibold {
   font-weight: 600;
-}.font-bold {
-  font-weight: 700;
 }.uppercase {
   text-transform: uppercase;
 }.leading-5 {
@@ -843,6 +854,21 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }.ease-out {
   transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+}.actions-container .action svg {
+  display: block;
+  width: 24px;
+  height: 24px;
+}.flash-messages {
+  position: fixed;
+  z-index: 20;
+  right: 0;
+  left: 0;
+}.flash-messages .alert {
+  transform: translateY(30px);
+  transition: ease 1s;
+}.flash-messages .alert .btn-close svg {
+  width: 10px;
+  height: 10px;
 }.last\:mb-0:last-child {
   margin-bottom: 0px;
 }.hover\:border-gray-300:hover {
@@ -969,32 +995,39 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
   }.sm\:pt-0 {
     padding-top: 0px;
   }
-}@media (min-width: 1024px) {.lg\:static {
+}@media (min-width: 768px) {.md\:static {
     position: static;
-  }.lg\:left-auto {
+  }.md\:left-auto {
     left: auto;
-  }.lg\:top-auto {
+  }.md\:top-auto {
     top: auto;
-  }.lg\:z-auto {
+  }.md\:z-auto {
     z-index: auto;
-  }.lg\:block {
+  }.md\:block {
     display: block;
-  }.lg\:inline-flex {
+  }.md\:inline-flex {
     display: inline-flex;
-  }.lg\:hidden {
+  }.md\:hidden {
     display: none;
-  }.lg\:w-20 {
+  }.md\:w-20 {
     width: 5rem;
-  }.lg\:translate-x-0 {
+  }.md\:translate-x-0 {
     --tw-translate-x: 0px;
     transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-  }.lg\:overflow-y-auto {
+  }.md\:overflow-y-auto {
     overflow-y: auto;
+  }.md\:opacity-0 {
+    opacity: 0;
+  }
+}@media (min-width: 1024px) {.lg\:block {
+    display: block;
+  }.lg\:hidden {
+    display: none;
   }.lg\:px-8 {
     padding-left: 2rem;
     padding-right: 2rem;
-  }.lg\:opacity-0 {
-    opacity: 0;
+  }.lg\:opacity-100 {
+    opacity: 1;
   }
 }@media (min-width: 1536px) {.\32xl\:block {
     display: block;
@@ -1003,5 +1036,13 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
   }.\32xl\:opacity-100 {
     opacity: 1;
   }
+}.ltr\:origin-top-left:where([dir="ltr"], [dir="ltr"] *) {
+  transform-origin: top left;
+}.ltr\:origin-top-right:where([dir="ltr"], [dir="ltr"] *) {
+  transform-origin: top right;
+}.rtl\:origin-top-left:where([dir="rtl"], [dir="rtl"] *) {
+  transform-origin: top left;
+}.rtl\:origin-top-right:where([dir="rtl"], [dir="rtl"] *) {
+  transform-origin: top right;
 }
 
