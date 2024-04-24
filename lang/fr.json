@@ -257,5 +257,9 @@
     "Users": "Utilisateurs",
     "Firstname": "Prénom",
     "Lastname": "Nom",
-    "Username": "Nom d'utilisateur"
+    "Username": "Nom d'utilisateur",
+    "Manage billing": "Gérer les facturations",
+    "Manage your billings, your payment methods or request a refund.": "Gérer vos facturations, vos moyens de paiement ou demander un remboursement.",
+    "Billings": "Facturations",
+    "you have not yet made a purchase.": "vous n'avez pas encore effectuer d'achat."
 }
