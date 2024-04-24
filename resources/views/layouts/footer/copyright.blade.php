@@ -13,14 +13,12 @@
             <div class="w-1/2 sm:w-auto pb-6">
                 <a href="#" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Contact</a>
             </div>
-            <div>
-                @include('components.language-switcher')
-            </div>
         </nav>
         <div class="flex flex-col justify-center items-center w-full space-y-4">
             <p class="text-center text-xs leading-5 text-gray-500">
                 &copy; 2024 Omiscan, tous droits réservés.
             </p>
+            @include('components.language-switcher')
         </div>
     </div>
 </footer>
