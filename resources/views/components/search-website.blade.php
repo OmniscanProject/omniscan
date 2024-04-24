@@ -30,7 +30,7 @@
         progressElem.style.display = "";
         score.style.display = "none";
         btnScan.disabled = true;
-        btnScan.classList.add('animate-pulse')
+        btnScan.classList.add('animate-pulse');
         let interval = setInterval(function() {
             width += 1;
             progressBar.style.width = width + '%';
@@ -39,9 +39,9 @@
                 clearInterval(interval);
                 progressElem.style.display = "none";
                 score.style.display = "";
-                progressBar.style.width = "0px"
+                progressBar.style.width = "0px";
                 btnScan.disabled = false;
-                btnScan.classList.remove('animate-pulse')
+                btnScan.classList.remove('animate-pulse');
             }
         }, 100);
     }
