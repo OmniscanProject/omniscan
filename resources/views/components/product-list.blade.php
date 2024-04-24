@@ -1,3 +1,6 @@
+@php
+    $pricing = [];
+@endphp
 <div class="bg-white sm:py-32">
     <div class="mx-auto max-w-7xl px-6 lg:px-8">
         <div class="interval-container">
@@ -19,7 +22,6 @@
                 @php
                     $subscriptions = ($product->prices()->where(['active' => 1])->get());
 
-                    $pricing = [];
                     foreach ($subscriptions as $subscription) {
                         $pricing[$product->id][$subscription->recurring_interval]['price'] = $subscription->price;
                         $pricing[$product->id][$subscription->recurring_interval]['name'] = " € / " . __($subscription->recurring_interval);
@@ -37,39 +39,42 @@
 </div>
 
 <script>
+    
     const pricing = {!! json_encode($pricing) !!}
     const intervalBtns = document.querySelectorAll('.interval-btn');
 
     let products = document.querySelectorAll('.product-card');
 
-    const initValues = (products, interval = 'month') => {
-        if(products.length > 0){        
-            products.forEach(product => {
-                let priceSpan = product.querySelector("span[data-price]");
-                let intervalSpan = product.querySelector("span[data-interval]");
-                let priceIdInput = product.querySelector("input[name='price_id']");
-            
-                priceSpan.innerText = pricing[product.dataset.product][interval]['price'];
-                intervalSpan.innerText = pricing[product.dataset.product][interval]['name'];
-                priceIdInput.value = pricing[product.dataset.product][interval]['id'];
+    if(pricing.length > 0){
+        const initValues = (products, interval = 'month') => {
+            if(products.length > 0){        
+                products.forEach(product => {
+                    let priceSpan = product.querySelector("span[data-price]");
+                    let intervalSpan = product.querySelector("span[data-interval]");
+                    let priceIdInput = product.querySelector("input[name='price_id']");
+                
+                    priceSpan.innerText = pricing[product.dataset.product][interval]['price'];
+                    intervalSpan.innerText = pricing[product.dataset.product][interval]['name'];
+                    priceIdInput.value = pricing[product.dataset.product][interval]['id'];
 
-            });
+                });
+            }
         }
-    }
-    initValues(products);
-    intervalBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            intervalBtns.forEach(btn => {
-                btn.classList.remove('active');
+        initValues(products);
+        intervalBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                intervalBtns.forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                btn.classList.add('active');
+
+                let interval = btn.dataset.interval;
+
+                initValues(products, interval);
+            
+
             });
-            btn.classList.add('active');
-
-            let interval = btn.dataset.interval;
-
-            initValues(products, interval);
-        
-
         });
-    });
+    }
 </script>
 
