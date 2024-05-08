@@ -1,0 +1,5 @@
+<svg id="burger-black" xmlns="http://www.w3.org/2000/svg" width="26.268" height="12" viewBox="0 0 26.268 12">
+  <path id="Tracé_110" data-name="Tracé 110" d="M25.667,5.7H.6a.6.6,0,0,1,0-1.2H25.667a.6.6,0,1,1,0,1.2" transform="translate(0 0.9)" fill="#1d1d1b"></path>
+  <path id="Tracé_111" data-name="Tracé 111" d="M25.667,1.2H.6A.6.6,0,0,1,.6,0H25.667a.6.6,0,1,1,0,1.2" fill="#1d1d1b"></path>
+  <path id="Tracé_112" data-name="Tracé 112" d="M25.667,10.2H.6A.6.6,0,1,1,.6,9H25.667a.6.6,0,1,1,0,1.2" transform="translate(0 1.8)" fill="#1d1d1b"></path>
+</svg>

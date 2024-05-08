@@ -1,31 +1,29 @@
-<nav x-data="{ open: false }" class="">
+<div x-data="{ open: false }" class="block space-x-10">
     <!-- Primary Navigation Menu -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between h-16">
+    <div class="flex flex-col md:flex-row justify-between items-center md:space-x-10">
 
-            @if(!Auth::guard('customer')->user())
-                <a href="{{ route('login') }}">
-                    {{ __('Login') }}
-                </a>
-                <a href="{{ route('register') }}">
-                    {{ __('Register') }}
-                </a>
-            @endif
+        @if(!Auth::guard('customer')->user())
+            <a class="text-gray-950 py-3 md:py-2 font-semibold md:m-l-1" href="{{ route('login') }}">
+                {{ __('Login') }}
+            </a>
+            <a class="text-gray-950 py-3 md:py-2 font-semibold" href="{{ route('register') }}">
+                {{ __('Register') }}
+            </a>
+        @endif
 
-            @if(Auth::guard('customer')->user())
-                <a href="{{ route('profile.edit') }}">
-                    {{ __('Profile') }}
-                </a>
+        @if(Auth::guard('customer')->user())
+            <a class="text-gray-950 py-2 font-semibold" href="{{ route('customer.dashboard.index') }}">
+                {{ __('Dashboard') }}
+            </a>
 
-                <form method="POST" action="{{ route('logout') }}">
-                    @csrf
-                    <nav-link :href="route('logout')"
-                            onclick="event.preventDefault();
-                                        this.closest('form').submit();">
-                        {{ __('Log Out') }}
-                    </nav-link>
-                </form>
-            @endauth
-        </div>
+            <form method="POST" action="{{ route('logout') }}">
+                @csrf
+                <a class="text-gray-950 py-2 font-semibold" href="route('logout')"
+                    onclick="event.preventDefault();
+                        this.closest('form').submit();">
+                    {{ __('Log Out') }}
+                </a>
+            </form>
+        @endauth
     </div>
-</nav>
+</div>

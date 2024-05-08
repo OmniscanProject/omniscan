@@ -18,12 +18,14 @@
 
 
         <!-- Scripts -->
-        <script src="{{ asset('js/app.js') }}" defer></script>
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
+        @vite(['resources/assets/css/app.css', 'resources/assets/js/app.js'])
         @livewireScripts
+        {{-- stacks --}}
+        @stack('header.styles')
+        @stack('header.scripts')
     </head>
     <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
+        <div class="">
             @include('layouts.header')
 
             <div class="flash-messages">
@@ -38,6 +40,8 @@
             <main>
                 {{ $slot }}
             </main>
+
+            @include('layouts.footer')
         </div>
     </body>
 </html>

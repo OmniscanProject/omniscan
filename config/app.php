@@ -96,7 +96,7 @@ return [
     |
     */
 
-    'fallback_locale' => 'en',
+    'fallback_locale' => 'fr',
 
     /*
     |--------------------------------------------------------------------------
@@ -188,5 +188,11 @@ return [
         // 'Example' => App\Facades\Example::class,
         ]
     )->toArray(),
+
+
+
+    // Custom
+    'phone' => '+33 2 34 65 76 00',
+    'mail' => 'contact@omniscan.fr',
 
 ];

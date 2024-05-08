@@ -1,0 +1,33 @@
+// Tailwind
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+// Variables
+@import './variables.scss';
+
+@import './singular/singular.scss';
+
+@import './partials/fonts.scss';
+@import './partials/header.scss';
+@import './partials/reset.scss';
+
+// Flash message
+.flash-messages {
+    position: fixed;
+    z-index: 20;
+    right: 0;
+    left: 0;
+
+    .alert {
+        transform: translateY(30px);
+        transition: ease 1s;
+        .btn-close {
+            svg {
+                width: 10px;
+                height: 10px;
+            }
+        }
+    }
+}

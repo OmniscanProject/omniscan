@@ -2946,18 +2946,18 @@ function withinMaxClamp(min, value, max) {
 
 /***/ }),
 
-/***/ "./resources/js/app.js":
-/*!*****************************!*\
-  !*** ./resources/js/app.js ***!
-  \*****************************/
+/***/ "./resources/assets/js/app.js":
+/*!************************************!*\
+  !*** ./resources/assets/js/app.js ***!
+  \************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var flowbite__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! flowbite */ "./node_modules/flowbite/lib/esm/index.js");
-/* harmony import */ var _scss_app_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../scss/app.scss */ "./resources/scss/app.scss");
-/* harmony import */ var _singular_dashboard_admin__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./singular/dashboard_admin */ "./resources/js/singular/dashboard_admin.js");
-/* harmony import */ var _singular_dashboard_admin__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_singular_dashboard_admin__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _scss_app_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../scss/app.scss */ "./resources/assets/scss/app.scss");
+/* harmony import */ var _trigger__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./trigger */ "./resources/assets/js/trigger.js");
+/* harmony import */ var _trigger__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_trigger__WEBPACK_IMPORTED_MODULE_2__);
 // /**
 //  * First we will load all of this project's JavaScript dependencies which
 //  * includes Vue and other libraries. It is a great starting point when
@@ -2968,48 +2968,37 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-// import { createApp } from 'vue';
-
-// /**
-//  * Next, we will create a fresh Vue application instance. You may then begin
-//  * registering components with the application instance so they are ready
-//  * to use in your application's views. An example is included for you.
-//  */
-
-// const app = createApp({});
-
-// import ExampleComponent from './components/ExampleComponent.vue';
-// app.component('example-component', ExampleComponent);
-
-// /**
-//  * The following block of code may be used to automatically register your
-//  * Vue components. It will recursively scan this directory for the Vue
-//  * components and automatically register them with their "basename".
-//  *
-//  * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
-//  */
-
-// // Object.entries(import.meta.glob('./**/*.vue', { eager: true })).forEach(([path, definition]) => {
-// //     app.component(path.split('/').pop().replace(/\.\w+$/, ''), definition.default);
-// // });
-
-// /**
-//  * Finally, we will attach the application instance to a HTML element with
-//  * an "id" attribute of "app". This element is included with the "auth"
-//  * scaffolding. Otherwise, you will need to add an element yourself.
-//  */
-
-// app.mount('#app');
-
 /***/ }),
 
-/***/ "./resources/js/singular/dashboard_admin.js":
-/*!**************************************************!*\
-  !*** ./resources/js/singular/dashboard_admin.js ***!
-  \**************************************************/
+/***/ "./resources/assets/js/trigger.js":
+/*!****************************************!*\
+  !*** ./resources/assets/js/trigger.js ***!
+  \****************************************/
 /***/ (() => {
 
+document.addEventListener('DOMContentLoaded', function () {
+  var triggers = document.querySelectorAll('[data-trigger]');
+  if (triggers.length > 0) {
+    triggers.forEach(function (trigger) {
+      trigger.addEventListener('click', function () {
+        var id = trigger.getAttribute('data-trigger');
+        var target = document.querySelector("[data-target=\"".concat(id, "\"]"));
 
+        // Toggle not working, debug
+        if (trigger.classList.contains('open')) {
+          trigger.classList.remove('open');
+        } else {
+          trigger.classList.add('open');
+        }
+        if (target.classList.contains('open')) {
+          target.classList.remove('open');
+        } else {
+          target.classList.add('open');
+        }
+      });
+    });
+  }
+});
 
 /***/ }),
 
@@ -6760,35 +6749,19 @@ events.init();
 
 /***/ }),
 
-/***/ "./resources/scss/app.scss":
-/*!*********************************!*\
-  !*** ./resources/scss/app.scss ***!
-  \*********************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ "./resources/assets/scss/app.scss":
+/*!****************************************!*\
+  !*** ./resources/assets/scss/app.scss ***!
+  \****************************************/
+/***/ (() => {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
-
+throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/css-loader/dist/cjs.js):\nError: Can't resolve '../../../node_modules/slick-carousel/slick/slick-slider/slick/fonts/slick.eot' in '/Users/qtn/Documents/Dev/Web/Projets/OmniScan/OmniScan/resources/assets/scss'\n    at finishWithoutResolve (/Users/qtn/Documents/Dev/Web/Projets/OmniScan/OmniScan/node_modules/enhanced-resolve/lib/Resolver.js:564:18)\n    at /Users/qtn/Documents/Dev/Web/Projets/OmniScan/OmniScan/node_modules/enhanced-resolve/lib/Resolver.js:656:15\n    at /Users/qtn/Documents/Dev/Web/Projets/OmniScan/OmniScan/node_modules/enhanced-resolve/lib/Resolver.js:714:5\n    at eval (eval at create (/Users/qtn/Documents/Dev/Web/Projets/OmniScan/OmniScan/node_modules/tapable/lib/HookCodeFactory.js:33:10), <anonymous>:16:1)\n    at /Users/qtn/Documents/Dev/Web/Projets/OmniScan/OmniScan/node_modules/enhanced-resolve/lib/Resolver.js:714:5\n    at eval (eval at create (/Users/qtn/Documents/Dev/Web/Projets/OmniScan/OmniScan/node_modules/tapable/lib/HookCodeFactory.js:33:10), <anonymous>:27:1)\n    at /Users/qtn/Documents/Dev/Web/Projets/OmniScan/OmniScan/node_modules/enhanced-resolve/lib/DescriptionFilePlugin.js:89:43\n    at /Users/qtn/Documents/Dev/Web/Projets/OmniScan/OmniScan/node_modules/enhanced-resolve/lib/Resolver.js:714:5\n    at eval (eval at create (/Users/qtn/Documents/Dev/Web/Projets/OmniScan/OmniScan/node_modules/tapable/lib/HookCodeFactory.js:33:10), <anonymous>:15:1)\n    at /Users/qtn/Documents/Dev/Web/Projets/OmniScan/OmniScan/node_modules/enhanced-resolve/lib/Resolver.js:714:5\n    at eval (eval at create (/Users/qtn/Documents/Dev/Web/Projets/OmniScan/OmniScan/node_modules/tapable/lib/HookCodeFactory.js:33:10), <anonymous>:16:1)\n    at /Users/qtn/Documents/Dev/Web/Projets/OmniScan/OmniScan/node_modules/enhanced-resolve/lib/Resolver.js:714:5\n    at eval (eval at create (/Users/qtn/Documents/Dev/Web/Projets/OmniScan/OmniScan/node_modules/tapable/lib/HookCodeFactory.js:33:10), <anonymous>:16:1)\n    at /Users/qtn/Documents/Dev/Web/Projets/OmniScan/OmniScan/node_modules/enhanced-resolve/lib/Resolver.js:714:5\n    at eval (eval at create (/Users/qtn/Documents/Dev/Web/Projets/OmniScan/OmniScan/node_modules/tapable/lib/HookCodeFactory.js:33:10), <anonymous>:27:1)\n    at /Users/qtn/Documents/Dev/Web/Projets/OmniScan/OmniScan/node_modules/enhanced-resolve/lib/DescriptionFilePlugin.js:89:43\n    at /Users/qtn/Documents/Dev/Web/Projets/OmniScan/OmniScan/node_modules/enhanced-resolve/lib/Resolver.js:714:5\n    at eval (eval at create (/Users/qtn/Documents/Dev/Web/Projets/OmniScan/OmniScan/node_modules/tapable/lib/HookCodeFactory.js:33:10), <anonymous>:16:1)\n    at /Users/qtn/Documents/Dev/Web/Projets/OmniScan/OmniScan/node_modules/enhanced-resolve/lib/Resolver.js:714:5\n    at eval (eval at create (/Users/qtn/Documents/Dev/Web/Projets/OmniScan/OmniScan/node_modules/tapable/lib/HookCodeFactory.js:33:10), <anonymous>:15:1)\n    at /Users/qtn/Documents/Dev/Web/Projets/OmniScan/OmniScan/node_modules/enhanced-resolve/lib/DirectoryExistsPlugin.js:41:15\n    at process.processTicksAndRejections (node:internal/process/task_queues:81:21)\n    at processResult (/Users/qtn/Documents/Dev/Web/Projets/OmniScan/OmniScan/node_modules/webpack/lib/NormalModule.js:841:19)\n    at /Users/qtn/Documents/Dev/Web/Projets/OmniScan/OmniScan/node_modules/webpack/lib/NormalModule.js:964:5\n    at /Users/qtn/Documents/Dev/Web/Projets/OmniScan/OmniScan/node_modules/loader-runner/lib/LoaderRunner.js:400:11\n    at /Users/qtn/Documents/Dev/Web/Projets/OmniScan/OmniScan/node_modules/loader-runner/lib/LoaderRunner.js:252:18\n    at context.callback (/Users/qtn/Documents/Dev/Web/Projets/OmniScan/OmniScan/node_modules/loader-runner/lib/LoaderRunner.js:124:13)\n    at Object.loader (/Users/qtn/Documents/Dev/Web/Projets/OmniScan/OmniScan/node_modules/css-loader/dist/index.js:155:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)");
 
 /***/ }),
 
-/***/ "./resources/scss/singular/homepage.scss":
-/*!***********************************************!*\
-  !*** ./resources/scss/singular/homepage.scss ***!
-  \***********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
-
-
-/***/ }),
-
-/***/ "./resources/scss/singular/dashboard_admin.scss":
+/***/ "./resources/assets/scss/singular/homepage.scss":
 /*!******************************************************!*\
-  !*** ./resources/scss/singular/dashboard_admin.scss ***!
+  !*** ./resources/assets/scss/singular/homepage.scss ***!
   \******************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -6799,10 +6772,23 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/css/app.css":
-/*!*******************************!*\
-  !*** ./resources/css/app.css ***!
-  \*******************************/
+/***/ "./resources/assets/scss/singular/dashboard_admin.scss":
+/*!*************************************************************!*\
+  !*** ./resources/assets/scss/singular/dashboard_admin.scss ***!
+  \*************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./resources/assets/css/app.css":
+/*!**************************************!*\
+  !*** ./resources/assets/css/app.css ***!
+  \**************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -6924,8 +6910,8 @@ __webpack_require__.r(__webpack_exports__);
 /******/ 		var installedChunks = {
 /******/ 			"/js/app": 0,
 /******/ 			"css/app": 0,
-/******/ 			"css/dashboard_admin": 0,
-/******/ 			"css/homepage": 0
+/******/ 			"css/singular/dashboard_admin": 0,
+/******/ 			"css/singular/homepage": 0
 /******/ 		};
 /******/ 		
 /******/ 		// no chunk on demand loading
@@ -6975,11 +6961,11 @@ __webpack_require__.r(__webpack_exports__);
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/dashboard_admin","css/homepage"], () => (__webpack_require__("./resources/js/app.js")))
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/dashboard_admin","css/homepage"], () => (__webpack_require__("./resources/scss/app.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/dashboard_admin","css/homepage"], () => (__webpack_require__("./resources/scss/singular/homepage.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/dashboard_admin","css/homepage"], () => (__webpack_require__("./resources/scss/singular/dashboard_admin.scss")))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/app","css/dashboard_admin","css/homepage"], () => (__webpack_require__("./resources/css/app.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/singular/dashboard_admin","css/singular/homepage"], () => (__webpack_require__("./resources/assets/js/app.js")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/singular/dashboard_admin","css/singular/homepage"], () => (__webpack_require__("./resources/assets/scss/app.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/singular/dashboard_admin","css/singular/homepage"], () => (__webpack_require__("./resources/assets/scss/singular/homepage.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/singular/dashboard_admin","css/singular/homepage"], () => (__webpack_require__("./resources/assets/scss/singular/dashboard_admin.scss")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/app","css/singular/dashboard_admin","css/singular/homepage"], () => (__webpack_require__("./resources/assets/css/app.css")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()

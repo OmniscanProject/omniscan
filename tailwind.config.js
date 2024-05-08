@@ -11,16 +11,15 @@ export default {
         "./node_modules/flowbite/**/*.js"
         ],
         theme: {
+            container: {
+                padding: {
+                    sm: '5rem'
+                },
+            },
             extend: {},
             colors: {
-                // transparent: 'transparent',
                 primary: 'var(--color-primary)',
-                secondary: 'var(--color-secondary)',
-                // current: 'currentColor',
-                // 'primary': '#565584',
-                // 'secondary': '#565584',
-                // 'white': '#ffffff',
-                // 'black': '#000000',
+                secondary: 'var(--color-secondary)'
             }
     },
     plugins: [
