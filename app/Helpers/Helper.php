@@ -1,8 +1,5 @@
 <?php
- 
- namespace App\Helpers;
-  
- use Laravel\Cashier\Events\WebhookReceived;
+namespace App\Helpers;
   
 class Helper
 {
@@ -32,5 +29,24 @@ class Helper
         // Return result
 
         return $text;
+    }
+
+    public static function ping($url): string {
+        $ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_HEADER, true);
+        curl_setopt($ch, CURLOPT_NOBODY, true);
+        curl_setopt($ch, CURLOPT_TIMEOUT, 10);
+        curl_exec($ch);
+        $httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        curl_close($ch);
+
+        if ($httpcode === 200) {
+            return "available";
+        } elseif ($httpcode === 500) {
+            return "unavailable";
+        } else {
+            return "unknown";
+        }
     }
 }

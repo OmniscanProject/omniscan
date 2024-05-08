@@ -23,6 +23,12 @@ OmniScan is a robust web application built using the Laravel framework. It is de
 6. Run `php artisan db:seed` to seed the database with initial data.
 7. Run `php artisan serve` to start the local development server.
 
+## Configuration
+
+Do not forget to configure the following in `config/app.php` to match your specific needs:
+- Phone number (`'phone' => 'phone'`)
+- Contact email address (`'mail' => 'mail'`)
+
 ## Usage
 Navigate to the local server URL provided by the `php artisan serve` command. Log in with the credentials provided by the database seeder to start using the application.
 

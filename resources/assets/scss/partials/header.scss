@@ -1,0 +1,16 @@
+header {
+    height: 6svh;
+    @media (min-width: 768px) {
+        height: 10svh;
+    }
+    #menu-mobile {
+        overflow: hidden;
+        max-height: 0;
+        transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
+        &.open {
+            max-height: 1000px;
+            transition: max-height 1s ease-in-out;
+        }
+    }
+}
+

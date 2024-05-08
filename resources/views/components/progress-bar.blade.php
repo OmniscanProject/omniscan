@@ -10,3 +10,22 @@
     <h2>Analyse terminé</h2>
     <h2>Score du site : A</h2>
 </div>
+
+
+<style>
+    @keyframes pulse {
+        0%,100% {
+            transform: scale(1);
+            opacity: 1;
+        }
+
+        50% {
+            transform: scale(1.05);
+            opacity: 0.8;
+        }
+    }
+
+    .animate-pulse {
+        animation: pulse 1s infinite;
+    }
+</style>

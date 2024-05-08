@@ -12,7 +12,7 @@ Route::group(['prefix' => 'dashboard', 'middleware' => ['auth:customer']], funct
       })
       ->name('customer.redirect');
     
-      Route::get('dashboard', [DashboardController::class, 'index'])
+      Route::get('', [DashboardController::class, 'index'])
       ->name('customer.dashboard.index');
     
 

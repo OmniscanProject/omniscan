@@ -1,0 +1,31 @@
+@charset "UTF-8";
+/* Slider */
+
+.slick-list {
+  position: relative;
+  overflow: hidden;
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+.slick-list:focus {
+  outline: none;
+}
+
+/* Slider */
+
+/* Icons */
+@font-face {
+  font-family: "slick";
+  src: url(/fonts/vendor/slick-carousel/slick/slick.eot?a4e97f5a2a64f0ab132323fbeb33ae29);
+  src: url(/fonts/vendor/slick-carousel/slick/slick.eot?a4e97f5a2a64f0ab132323fbeb33ae29?#iefix) format("embedded-opentype"), url(/fonts/vendor/slick-carousel/slick/slick.woff?295183786cd8a138986521d9f388a286) format("woff"), url(/fonts/vendor/slick-carousel/slick/slick.ttf?c94f7671dcc99dce43e22a89f486f7c2) format("truetype"), url(/fonts/vendor/slick-carousel/slick/slick.svg?2630a3e3eab21c607e21576571b95b9d#slick) format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+/* Arrows */
+
+/* Dots */
+
+#products-section .product-list li {
+  height: inherit !important;
+}

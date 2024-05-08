@@ -1,0 +1,49 @@
+@import 'slick-carousel/slick/slick';
+@import 'slick-carousel/slick/slick-theme';
+
+#search-section {
+    height: 94svh;
+    @media (min-width: 768px) {
+        height: 90svh;
+    }
+}
+
+#features-section {
+    .feature-list {
+        .slick-next {
+            right: 0;
+        }
+        .slick-prev {
+            left: 0;
+        }
+    }
+}
+
+#services-section,  #products-section  {
+    .service-list, .product-list {
+        .slick-dots {
+            position: relative;
+            button {
+                &::before {
+                    font-size: 10px;
+                }
+            }
+        }
+    }
+}
+#products-section {
+    .product-list {
+        li {
+            height: inherit !important;
+        }
+        .slick-track {
+            display: flex;
+            .slick-slide {
+                height: inherit !important;
+                & > div {
+                    height: 100%;
+                }
+            }
+        }
+    }
+}

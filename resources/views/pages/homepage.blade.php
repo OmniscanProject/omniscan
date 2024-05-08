@@ -1,5 +1,9 @@
-@push('styles')
-    <link href="{{ asset('css/homepage.css') }}" rel="stylesheet">
+@push('header.styles')
+    <link href="{{ asset('css/singular/homepage.css') }}" rel="stylesheet">
+@endpush
+
+@push('header.scripts')
+    <script src="{{ asset('js/singular/homepage.js') }}"></script>
 @endpush
 
 <x-app-layout>
@@ -24,9 +28,8 @@
         </div>
     </div> --}}
 
-    @include('components.search-website')
-    @include('components.features')
+    @include('pages.homepage.analyze')
+    @include('pages.homepage.services')
+    @include('pages.homepage.features')
     @include('pages.homepage.products')
-    @include('components.testimonial')
-    @include('layouts.footer')
 </x-app-layout>

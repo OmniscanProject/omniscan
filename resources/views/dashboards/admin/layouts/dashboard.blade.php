@@ -14,7 +14,7 @@
         
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-        <link rel="stylesheet" href="{{ asset('css/dashboard_admin.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/singular/dashboard_admin.css') }}">
 
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
