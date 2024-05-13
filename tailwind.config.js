@@ -7,6 +7,7 @@ export default {
         './storage/framework/views/*.php',
         './resources/**/*.blade.php',
         './resources/**/*.js',
+        './resources/**/*.ts',
         './resources/**/*.vue',
         "./node_modules/flowbite/**/*.js"
         ],
@@ -23,7 +24,7 @@ export default {
             }
     },
     plugins: [
-    require('flowbite/plugin')
+        require('flowbite/plugin')
     ],
     }
 

@@ -12,5 +12,25 @@ header {
             transition: max-height 1s ease-in-out;
         }
     }
+
+    .functionalities {
+        width: inherit;
+        .trigger-sub-menu {
+            &.open {
+                .cross {
+                    display: block;
+                }
+                .arrow {
+                    display: none;
+                }
+            }
+        }
+        .target-sub-menu {
+            display: none;
+            &.open {
+                display: block;
+            }
+        }
+    }
 }
 

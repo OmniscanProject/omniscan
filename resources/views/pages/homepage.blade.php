@@ -1,7 +1,6 @@
 @push('header.styles')
     <link href="{{ asset('css/singular/homepage.css') }}" rel="stylesheet">
 @endpush
-
 @push('header.scripts')
     <script src="{{ asset('js/singular/homepage.js') }}"></script>
 @endpush

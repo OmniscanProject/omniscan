@@ -3,7 +3,7 @@
         @if (request()->is('/') || request()->routeIs('homepage'))
             <h1>
         @endif
-            <x-application-logo />
+            <x-application-logo/>
         @if (request()->is('/') || request()->routeIs('homepage'))
             </h1>
         @endif

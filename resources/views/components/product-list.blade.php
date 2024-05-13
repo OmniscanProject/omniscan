@@ -16,7 +16,7 @@
             {{ __('Monthly billing') }}
         </button>
     </div>
-    <ol class="product-list mt-6 flex justify-center items-stretch md:gap-10 gap-20">
+    <ol class="product-list mt-6 flex justify-center items-stretch md:gap-5 gap-20">
         @foreach ($products as $product)
             @php
                 $subscriptions = ($product->prices()->where(['active' => 1])->get());

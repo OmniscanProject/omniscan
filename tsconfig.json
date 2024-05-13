@@ -1,0 +1,19 @@
+{
+    "exclude": ["vendor/**/*.tsx", "vendor/laravel/breeze/stubs/inertia-vue-ts/resources/js/ssr.ts","vendor/laravel/breeze/stubs/inertia-vue-ts/resources/js/app.ts"],
+    "compilerOptions": {
+        "target": "esnext",
+        "noImplicitAny": false,
+        "module": "esnext",
+        "strict": false,
+        "resolveJsonModule": true,
+        "moduleResolution": "node",
+        "types": ["node"],
+        "paths": {
+            "@v" : ["./resources/vue"],
+            "@c": ["./resources/vue/components"],
+            "@css": ["./public/css"],
+            "@sass": ["./resources/assets/sass"]
+        }
+    }
+}
+

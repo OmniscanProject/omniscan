@@ -5,27 +5,20 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'Omniscan') }}</title>
+        <title>{{ config('app.name', 'OmniScan') }}</title>
 
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
-
-        
         <!-- Styles -->
-        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+        <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+        @stack('header.styles')
         @livewireStyles
 
-
         <!-- Scripts -->
-        @vite(['resources/assets/css/app.css', 'resources/assets/js/app.js'])
-        @livewireScripts
-        {{-- stacks --}}
-        @stack('header.styles')
+        <script src="{{ mix('js/app.js') }}"></script>
         @stack('header.scripts')
+        @livewireScripts
     </head>
-    <body class="font-sans antialiased">
-        <div class="">
+    <body class="antialiased">
+        <div class="min-h-screen">
             @include('layouts.header')
 
             <div class="flash-messages">

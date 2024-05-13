@@ -20,8 +20,6 @@ class AnalyzeController extends Controller
 
     public function analyze(AnalyzeRequest $request)
     {
-        
-        $request->session()->flash('referral_submitted', true);
     }
 
     

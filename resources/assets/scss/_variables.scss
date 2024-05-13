@@ -1,14 +1,10 @@
 // Body
-$body-bg: #f8fafc;
+$body-bg: hsl(0, 0%, 100%);
 
 // Typography
 $font-family-sans-serif: 'Nunito', sans-serif;
 $font-size-base: 0.9rem;
 $line-height-base: 1.6;
-
-// Slick Carousel
-$slick-font-path: "slick-slider/slick/fonts/";
-$slick-loader-path: "slick-slider/slick/";
 
 @layer base {
     :root {

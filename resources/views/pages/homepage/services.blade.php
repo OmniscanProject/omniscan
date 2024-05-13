@@ -1,4 +1,4 @@
-<div id='services-section' class="relative bg-white py-16 md:py-32 h-full px-5 container mx-auto">
+<div id='services-section' class="relative bg-white py-16 md:py-32 h-full">
     <ul class="service-list flex justify-center items-center md:gap-20 lg:gap-40">
         <li class="item">
             <img src="{{ asset('assets/svg/rounded-img.svg') }}" class="mx-auto" alt="{{ __('service - rounded-img') }}">
@@ -11,7 +11,7 @@
         </li>
     </ul>
 
-    <div class="text mt-20 text-center">
+    <div class="text mt-20 text-center px-5 container mx-auto">
         <p class="text-md md:text-xl">
             {{ __('Analyze real-time response times of your website.') }}
         </p>

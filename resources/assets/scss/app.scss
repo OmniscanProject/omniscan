@@ -3,11 +3,13 @@
 @tailwind components;
 @tailwind utilities;
 
+@import 'slick-carousel/slick/slick.scss';
+@import 'slick-carousel/slick/slick-theme.scss';
 
 // Variables
 @import './variables.scss';
 
-@import './singular/singular.scss';
+// @import "singular/singular.scss";
 
 @import './partials/fonts.scss';
 @import './partials/header.scss';

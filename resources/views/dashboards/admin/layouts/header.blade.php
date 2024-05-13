@@ -1,4 +1,4 @@
-<header class="relative top-0 bg-white dark:bg-[#182235] border-b border-slate-600 dark:border-slate-700 z-10">
+<header class="relative top-0 bg-white border-b border-slate-600 z-10">
     <div class="px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-16 -mb-px">
 

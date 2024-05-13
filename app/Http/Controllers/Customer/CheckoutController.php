@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Customer;
 
 use App\Models\Customer;
 use Illuminate\Http\Request;
@@ -59,7 +59,6 @@ class CheckoutController
             ]);
             return Redirect::to($session->url);
         } catch (\Exception $e) {
-            dd($e);
         }
     }
 }

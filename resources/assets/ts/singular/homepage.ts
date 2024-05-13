@@ -1,19 +1,18 @@
-import $ from 'jquery';
-
 import 'slick-carousel';
 
-// Vue
-// import en from "@/i18n/en.json";
-// import fr from "@/i18n/fr.json";
-// import { createApp } from 'vue';
-// import { createI18n } from "vue-i18n";
+import $ from 'jquery';
 
-window.jQuery = window.$ = $; 
+// Vue
+import en from '@v/i18n/en.json';
+import fr from '@v/i18n/fr.json';
+import Analyze from '@v/pages/homepage/Analyze.vue';
+import { createApp } from 'vue';
+import { createI18n } from 'vue-i18n';
 
 document.addEventListener('DOMContentLoaded', () => {
     const initServiceSlider = () => {
         if(window.innerWidth <= 767) {
-            $(".service-list").slick({
+            $(".service-list").not('.slick-initialized').slick({
                 infinite: true,
                 slidesToShow: 1,
                 slidesToScroll: 1,
@@ -31,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const initFeatureSlider = () => {
         if(window.innerWidth <= 767) {
-            $(".feature-list").slick({
+            $(".feature-list").not('.slick-initialized').slick({
                 infinite: true,
                 slidesToShow: 1,
                 slidesToScroll: 1,
@@ -49,14 +48,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const initProductSlider = () => {
         if(window.innerWidth <= 767) {
-            $(".product-list").slick({
+            $(".product-list").not('.slick-initialized').slick({
                 infinite: true,
                 slidesToShow: 1,
                 slidesToScroll: 1,
                 arrows: false,
                 dots: true,
                 centerMode: true,
-                centerPadding: '30px'
+                centerPadding: '40px'
             });
         } else {
             $(".feature-list").unslick;
@@ -68,16 +67,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 
-
     //Vue
-    // const i18n = createI18n({
-    //     locale: "fr",
-    //     fallbackLocale: "fr",
-    //     messages: { fr, en },
-    // });
-    // createApp(Analyze)
-    //     .use(i18n)
-    //     .mount('#analyze-section');
-
-
+    const i18n = createI18n({
+        locale: "fr",
+        fallbackLocale: "fr",
+        legacy: false,
+        messages: { fr, en },
+    });
+    createApp(Analyze)
+        .use(i18n)
+        .mount('#analyze-section');
 });

@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AnalyzeController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\LanguageController;
 
 /*
@@ -19,25 +19,23 @@ Route::get('/', function () {
     return view('pages.homepage');
 })->name('homepage');
 
-Route::post('/analyze', [AnalyzeController::class, 'analyze'])->name('analyze');
 
+Route::post('language-switch', [LanguageController::class, 'switch'])->name('language.switch');
 
-Route::get('/about', function () {
+Route::get('about', function () {
     return view('pages.about');
 })->name('about');
 
-Route::get('/legal-notices', function () {
-    return view('pages.legal-notices');
-})->name('legal-notices');
-
-Route::get('/cgv', function () {
+Route::get('cgv', function () {
     return view('pages.cgv');
 })->name('cgv');
 
-Route::get('/privacy', function () {
+Route::get('legal-notices', function () {
+    return view('pages.legal-notices');
+})->name('legal-notices');
+
+Route::get('privacy', function () {
     return view('pages.privacy');
 })->name('privacy');
-
-Route::post('language-switch', [LanguageController::class, 'switch'])->name('language.switch');
 
 require __DIR__.'/auth.php';

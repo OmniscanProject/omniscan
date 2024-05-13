@@ -6,7 +6,6 @@
  * @license UNLICENSED
  * @version 1.0.0
  * 
- * @author Alexandre Buleté <bulete.alexandre@gmail.com>
  */
 
 import { useI18n } from "vue-i18n";
@@ -20,5 +19,6 @@ import { useI18n } from "vue-i18n";
  */
 export const setLocale = (locale) => {
     const t = useI18n();
-    t.locale.value = locale
+    t.locale.value = locale    
 }
+

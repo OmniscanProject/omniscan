@@ -12,12 +12,15 @@ document.addEventListener('DOMContentLoaded', () => {
                     trigger.classList.remove('open')
                 } else {
                     trigger.classList.add('open')
+
                 }
 
-                if(target.classList.contains('open')) {
-                    target.classList.remove('open')
-                } else {
-                    target.classList.add('open')
+                if (target) {
+                    if(target.classList.contains('open')) {
+                        target.classList.remove('open')
+                    } else {
+                        target.classList.add('open')
+                    }
                 }
             })
         })

@@ -1,14 +1,28 @@
 const mix = require('laravel-mix');
 require('laravel-mix-purgecss');
+const webpack = require('webpack');
 
 const path = require('path');
 
 mix.alias({
-    '@' : path.join(__dirname, 'resources/vue'),
-    '$c': path.join(__dirname,'resources/vue/components'),
-    // '$css': path.join(__dirname, 'public/css'),
-    '$sass': path.join(__dirname, 'resources/assets/sass'),
+  '@v' : path.join(__dirname, 'resources/vue'),
+  '@c': path.join(__dirname,'resources/vue/components'),
+  '@css': path.join(__dirname, 'public/css'),
+  '@sass': path.join(__dirname, 'resources/assets/sass'),
 })
+
+mix.webpackConfig({
+  plugins: [
+    new webpack.ProvidePlugin({
+      $: 'jquery',
+      jQuery: 'jquery'
+    })
+  ],
+});
+
+mix.autoload({
+	jquery: ['$', 'window.jQuery'],
+});
 
 /*
  |--------------------------------------------------------------------------
@@ -28,8 +42,8 @@ mix
 .sass('resources/assets/scss/singular/dashboard_admin.scss', 'public/css/singular')
 
 
-.js('resources/assets/js/app.js', 'public/js')
-.js('resources/assets/js/singular/homepage.js', 'public/js/singular')
+.ts('resources/assets/ts/app.ts', 'public/js')
+.ts('resources/assets/ts/singular/homepage.ts', 'public/js/singular')
 
 .postCss('resources/assets/css/app.css', 'public/css', [
     require('postcss-import'),
@@ -37,11 +51,11 @@ mix
     require('autoprefixer')
 ])
 
-.purgeCss({
-    enabled: true,
-    safelist: {
-        standard: ['active', 'open', 'enable','slick-list'],
-    }
-})
+// .purgeCss({
+//     enabled: true,
+//     safelist: {
+//         standard: ['active', 'open', 'enable','slick-list'],
+//     }
+// })
 
 .vue({version:'3'});
