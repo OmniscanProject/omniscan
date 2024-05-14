@@ -2,7 +2,13 @@
     "homepage": {
         "analyze" : {
             "title": "Testez et découvrez les vulnérabilités de votre site web !",
-            "subtitle": "Effectuez un essai gratuitement"
+            "subtitle": "Effectuez un essai gratuitement",
+            "input": {
+                "alt" : "Logo de recherche"
+            },
+            "img": {
+                "alt": "Image d'un ordinateur"
+            }
         }
     }
 }

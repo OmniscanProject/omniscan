@@ -1,4 +1,4 @@
-<div id="analyze-section" class="relative bg-gray-300 md:py-20 h-full"></div>
+<div id="analyze-section"></div>
 
    
 {{-- @include('components.progress-bar') --}}

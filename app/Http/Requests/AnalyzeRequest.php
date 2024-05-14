@@ -7,6 +7,10 @@ use App\Models\User;
 use Illuminate\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
 
+use Illuminate\Contracts\Validation\Validator;
+use Illuminate\Validation\ValidationException;
+use Illuminate\Http\Exceptions\HttpResponseException;
+
 class AnalyzeRequest extends FormRequest
 {
     /**
@@ -21,6 +25,21 @@ class AnalyzeRequest extends FormRequest
         ];
     }
 
+    public function failedValidation(Validator $validator)
+    {
+        if ($this->expectsJson()) {
+            $error = $validator->errors()->first('url');
+            throw new HttpResponseException(
+                response()->json([
+                    "success" => false,
+                    "errors" => true,
+                    "message" => $error
+                ], 422)
+            );
+        }
+
+        parent::failedValidation($validator);
+    }
 
 
     /**
@@ -31,8 +50,8 @@ class AnalyzeRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'title.required' => 'A title is required',
-            'body.required' => 'A message is required',
+            'url.required' => 'A url is required',
+            'url.url' => 'A valid url is required',
         ];
     }
 }

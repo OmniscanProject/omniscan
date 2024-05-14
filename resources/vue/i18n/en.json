@@ -2,7 +2,13 @@
     "homepage": {
         "analyze" : {
             "title": "Test & discover your website vulnerabilities !",
-            "subtitle": "Start your free trial now"
+            "subtitle": "Start your free trial now",
+            "input": {
+                "alt" : "Search logo"
+            },
+            "img": {
+                "alt": "Computer image"
+            }
         }
     }
 }

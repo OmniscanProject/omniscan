@@ -1,4 +1,4 @@
-<header id="header" class="bg-white shadow">
+<header id="header" class="bg-white shadow z-20 relative">
     <div class="laptop hidden md:flex px-5 container mx-auto items-center justify-between h-full">
         @if (request()->is('/') || request()->routeIs('homepage'))
             <h1>
