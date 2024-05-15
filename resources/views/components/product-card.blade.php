@@ -12,7 +12,7 @@
             </p>
             <input type="hidden" name="price_id" value="">
             <a onclick="document.getElementById(`checkout-product-{{ $product->id }}`).submit()" href="#" aria-describedby="{{ $product->id }}" class="{{ $product->most_popular ? 'bg-indigo-600 text-white shadow-sm hover:bg-indigo-500' : 'text-indigo-600 ring-1 ring-inset ring-indigo-200 hover:ring-indigo-300' }} mt-6 block rounded-md py-2 px-3 text-center text-sm font-semibold leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-                {{ __('Acheter l\'offre') }}
+                {{ __('Purchase the offer') }}
             </a>
             <button class="hidden" type="submit"></button>
             @if (!empty($product->features))

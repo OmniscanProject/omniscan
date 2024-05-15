@@ -1893,6 +1893,10 @@ input:checked + .toggle-bg{
   font-size: 0.75rem;
   line-height: 1rem;
 }
+.text-2xl{
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
 .font-bold{
   font-weight: 700;
 }
@@ -2589,6 +2593,10 @@ ul li {
 .hover\:text-white:hover{
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+.hover\:text-indigo-900:hover{
+  --tw-text-opacity: 1;
+  color: rgb(54 47 120 / var(--tw-text-opacity));
 }
 .hover\:ring-indigo-300:hover{
   --tw-ring-opacity: 1;

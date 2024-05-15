@@ -158,7 +158,7 @@ return [
     'ulid' => 'The :attribute field must be a valid ULID.',
     'uuid' => 'The :attribute field must be a valid UUID.',
 
-    'url' => [
+    'website' => [
         'unavailable' => 'The :attribute url is unavailable',
         'unknown' => 'The :attribute url does not exist.',
     ],

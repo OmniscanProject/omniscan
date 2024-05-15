@@ -41,12 +41,15 @@ class Helper
         $httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
         curl_close($ch);
 
-        if ($httpcode === 200) {
+        $validCodes = [200, 301, 302, 303, 304, 307, 308, 401, 403, 405];
+        if (in_array($httpcode, $validCodes)) {
             return "available";
         } elseif ($httpcode === 500) {
             return "unavailable";
-        } else {
+        } elseif($httpcode === 404) {
             return "unknown";
+        } else {
+            return "unavailable";
         }
     }
 }

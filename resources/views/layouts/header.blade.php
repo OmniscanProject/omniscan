@@ -1,12 +1,14 @@
 <header id="header" class="bg-white shadow z-20 relative">
     <div class="laptop hidden md:flex px-5 container mx-auto items-center justify-between h-full">
-        @if (request()->is('/') || request()->routeIs('homepage'))
-            <h1>
-        @endif
-            <x-application-logo/>
-        @if (request()->is('/') || request()->routeIs('homepage'))
-            </h1>
-        @endif
+        <a href="/">
+            @if (request()->is('/') || request()->routeIs('homepage'))
+                <h1>
+            @endif
+                <x-application-logo class="fill-current"/>
+            @if (request()->is('/') || request()->routeIs('homepage'))
+                </h1>
+            @endif
+        </a>
         <nav id="menu" class="hidden md:flex container mx-auto px-6 py-3 justify-center items-center">
             <div class="hidden md:flex space-x-10">
                 <a href="{{ url('/') }}" class="text-gray-950 py-2 font-semibold">{{ __('Home') }}</a>

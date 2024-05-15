@@ -43,7 +43,6 @@ class CheckoutController
     {
         try {
             $checkout_session_id = $request->query('session_id');
-            $return_url = 'http://127.0.0.1:8000/';
             Stripe::setApiKey(config('services.stripe.secret'));
             $checkout_session = \Stripe\Checkout\Session::retrieve($checkout_session_id);
             $user = Auth::user();
@@ -55,10 +54,11 @@ class CheckoutController
             }
             $session = \Stripe\BillingPortal\Session::create([
                 'customer' => $customerId,
-                'return_url' => $return_url,
+                'return_url' => route('checkout.success'),
             ]);
             return Redirect::to($session->url);
         } catch (\Exception $e) {
+            return redirect()->back()->with('error', $e->getMessage());
         }
     }
 }
