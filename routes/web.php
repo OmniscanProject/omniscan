@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\LanguageController;
+use App\Http\Controllers\AnalyzeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,5 +38,7 @@ Route::get('legal-notices', function () {
 Route::get('privacy', function () {
     return view('pages.privacy');
 })->name('privacy');
+
+Route::get('/analyze/result', [AnalyzeController::class, 'show'])->name('analyze.result');
 
 require __DIR__.'/auth.php';

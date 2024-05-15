@@ -60,6 +60,7 @@ function analyzeUrl() {
         error.value = false
         message.value = res.data.message
         loading.value = false
+        window.location.href = "/analyze/result";
     })
     .catch(res => {
         if (res.response.data.errors === true) {

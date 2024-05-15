@@ -3,24 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 use App\Http\Requests\AnalyzeRequest;
 
 class AnalyzeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void 
-     */
-    public function __construct()
+    public function show()
     {
-        // $this->middleware('auth');
+        return view('pages.analyze-results');
     }
-
-
-    public function analyze(AnalyzeRequest $request)
-    {
-    }
-
-    
 }

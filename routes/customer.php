@@ -31,6 +31,10 @@ Route::group(['prefix' => 'dashboard', 'middleware' => ['auth:customer']], funct
     Route::post('/billing/createSession', [BillingPortalController::class, 'createSession'])->name('billing.createSession');
 });
 
+<<<<<<< Updated upstream
 Route::get('/checkout/success', function() {
   return view('pages.checkout.success');
 })->name('checkout.success');
+=======
+
+>>>>>>> Stashed changes

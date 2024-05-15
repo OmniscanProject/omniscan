@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\AnalyzeRequest;
 use App\Http\Resources\AnalyzeResource;
 use App\Classes\ApiResponseClass as ResponseClass;
+use Illuminate\Support\Facades\Artisan;
+
 
 class AnalyzeController extends Controller
 {
@@ -20,11 +22,11 @@ class AnalyzeController extends Controller
         // $this->middleware('auth');
     }
 
-
     public function analyze(AnalyzeRequest $request)
     {
-        return ResponseClass::sendResponse(null,trans('messages.api.scripts.analyze'),200, false);
+        $url = $request->input("url");
+        Artisan::call('python:run-script', ['url' => $url]);
+        $output = Artisan::output();
+        return ResponseClass::sendResponse($output,trans('messages.api.scripts.analyze'),200, false);
     }
-
-    
 }

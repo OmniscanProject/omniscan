@@ -22276,6 +22276,7 @@ __webpack_require__.r(__webpack_exports__);
         error.value = false;
         message.value = res.data.message;
         loading.value = false;
+        window.location.href = "/analyze/result";
       })["catch"](function (res) {
         if (res.response.data.errors === true) {
           error.value = true;
