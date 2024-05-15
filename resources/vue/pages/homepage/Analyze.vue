@@ -54,7 +54,8 @@ const loading = ref(false);
 
 function analyzeUrl() {
     loading.value = true
-    axios.post('/api/analyze', { url: url.value })
+    
+    axios.post('/api/analyze', { url: url.value }, { headers: { 'Accept-Language': htmlElement.lang } })
     .then(res => {
         error.value = false
         message.value = res.data.message

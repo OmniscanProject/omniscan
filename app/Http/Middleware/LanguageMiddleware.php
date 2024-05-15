@@ -9,6 +9,8 @@ use Symfony\Component\HttpFoundation\Response;
 
 class LanguageMiddleware
 {
+    protected const ALLOWED_LOCALIZATIONS = ['en', 'fr'];
+
     /**
      * Handle an incoming request.
      *
@@ -16,14 +18,21 @@ class LanguageMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        $language = session('language');
-
-        if(!$language) {
-            $language = app()->getLocale();
+        if (str_contains($request->url(), 'api/')) {
+            $localization = $request->header('Accept-Language');
+            $localization = in_array($localization, self::ALLOWED_LOCALIZATIONS, true) ? $localization : session('language');
+        } else {
+            $localization = session('language');
         }
-        app()->setLocale($language);
+        // dd($localization);
 
-        Log::info("Locale set to: " . $language . " (Selected language: " . $language . ")");
+        if(!$localization) {
+            $localization = app()->getLocale();
+        }
+
+        app()->setLocale($localization);
+
+        Log::info("Locale set to: " . $localization . " (Selected language: " . $localization . ")");
 
         return $next($request);
     }

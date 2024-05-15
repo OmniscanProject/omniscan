@@ -22268,6 +22268,10 @@ __webpack_require__.r(__webpack_exports__);
       loading.value = true;
       axios__WEBPACK_IMPORTED_MODULE_4__["default"].post('/api/analyze', {
         url: url.value
+      }, {
+        headers: {
+          'Accept-Language': htmlElement.lang
+        }
       }).then(function (res) {
         error.value = false;
         message.value = res.data.message;

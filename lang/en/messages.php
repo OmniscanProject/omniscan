@@ -4,7 +4,8 @@ return [
 
     'api' => [
         'scripts' => [
-            'analyze' => 'Analyse in progress'
+            'analyze' => 'Analyze in progress'
         ]
     ]
+    
 ];

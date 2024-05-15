@@ -27,8 +27,9 @@ Route::group(['prefix' => 'dashboard', 'middleware' => ['auth:customer']], funct
         ->name('customer.dashboard.reports.index');
       });
     
-    Route::post('/checkout/session', [CheckoutController::class, 'checkout'])->name('checkout.session');
-    Route::get('/checkout/success', [CheckoutController::class, 'checkoutSuccess'])->name('checkout.success');
-    Route::post('/billing/createSession', [BillingPortalController::class, 'createSession'])->name('billing.createSession');
-});
+  });
+    
+  Route::post('/checkout/session', [CheckoutController::class, 'checkout'])->name('checkout.session');
+  Route::get('/checkout/success', [CheckoutController::class, 'checkoutSuccess'])->name('checkout.success');
+  Route::post('/billing/createSession', [BillingPortalController::class, 'createSession'])->name('billing.createSession');
 
