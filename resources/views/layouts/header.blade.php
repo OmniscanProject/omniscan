@@ -10,7 +10,7 @@
             @endif
         </a>
         <nav id="menu" class="hidden md:flex container mx-auto px-6 py-3 justify-center items-center">
-            <div class="hidden md:flex space-x-20">
+            <div class="hidden md:flex md:space-x-10 lg:space-x-20">
                 <a href="{{ url('/') }}" class="text-black py-2">{{ __('Home') }}</a>
                 <a href="#about" class="text-black py-2">{{ __('About Us') }}</a>
                 <a href="#services" class="text-black  py-2">{{ __('Services') }}</a>
