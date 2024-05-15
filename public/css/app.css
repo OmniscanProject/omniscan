@@ -721,9 +721,10 @@ input:checked + .toggle-bg{
   border-color: #1C64F2;
 }
 :root {
-    --color-primary: rgb(52, 52, 76);
-    --color-secondary: rgb(30, 30, 62);
-    --color-tertiary: rgb(1, 1, 69);
+    --color-primary: #0048EA;
+    --color-secondary: #E6E6E6;
+    --color-tertiary: #00E28B;
+    --color-quaternary: #E761FF;
   }
 *, ::before, ::after{
   --tw-border-spacing-x: 0;
@@ -1134,6 +1135,9 @@ input:checked + .toggle-bg{
 .h-screen{
   height: 100vh;
 }
+.h-auto{
+  height: auto;
+}
 .min-h-screen{
   min-height: 100vh;
 }
@@ -1201,6 +1205,9 @@ input:checked + .toggle-bg{
 }
 .max-w-xl{
   max-width: 36rem;
+}
+.max-w-full{
+  max-width: 100%;
 }
 .flex-1{
   flex: 1 1 0%;
@@ -1370,6 +1377,12 @@ input:checked + .toggle-bg{
 .gap-4{
   gap: 1rem;
 }
+.gap-5{
+  gap: 1.25rem;
+}
+.gap-10{
+  gap: 2.5rem;
+}
 .gap-x-1{
   -moz-column-gap: 0.25rem;
        column-gap: 0.25rem;
@@ -1522,6 +1535,9 @@ input:checked + .toggle-bg{
 .border-t{
   border-top-width: 1px;
 }
+.border-b-4{
+  border-bottom-width: 4px;
+}
 .border-blue-500{
   --tw-border-opacity: 1;
   border-color: rgb(63 131 248 / var(--tw-border-opacity));
@@ -1559,6 +1575,14 @@ input:checked + .toggle-bg{
 }
 .border-transparent{
   border-color: transparent;
+}
+.border-indigo-500{
+  --tw-border-opacity: 1;
+  border-color: rgb(104 117 245 / var(--tw-border-opacity));
+}
+.border-black{
+  --tw-border-opacity: 1;
+  border-color: rgb(0 0 0 / var(--tw-border-opacity));
 }
 .bg-blue-500{
   --tw-bg-opacity: 1;
@@ -1629,6 +1653,9 @@ input:checked + .toggle-bg{
 .bg-red-600{
   --tw-bg-opacity: 1;
   background-color: rgb(224 36 36 / var(--tw-bg-opacity));
+}
+.bg-secondary{
+  background-color: var(--color-secondary);
 }
 .bg-transparent{
   background-color: transparent;
@@ -1742,6 +1769,10 @@ input:checked + .toggle-bg{
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
 }
+.py-8{
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
 .pb-2{
   padding-bottom: 0.5rem;
 }
@@ -1802,6 +1833,10 @@ input:checked + .toggle-bg{
 .font-sans{
   font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
+.text-2xl{
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
 .text-3xl{
   font-size: 1.875rem;
   line-height: 2.25rem;
@@ -1829,10 +1864,6 @@ input:checked + .toggle-bg{
 .text-xs{
   font-size: 0.75rem;
   line-height: 1rem;
-}
-.text-2xl{
-  font-size: 1.5rem;
-  line-height: 2rem;
 }
 .font-bold{
   font-weight: 700;
@@ -2532,13 +2563,13 @@ ul li {
   --tw-text-opacity: 1;
   color: rgb(17 24 39 / var(--tw-text-opacity));
 }
-.hover\:text-white:hover{
-  --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity));
-}
 .hover\:text-indigo-900:hover{
   --tw-text-opacity: 1;
   color: rgb(54 47 120 / var(--tw-text-opacity));
+}
+.hover\:text-white:hover{
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 .hover\:ring-indigo-300:hover{
   --tw-ring-opacity: 1;
@@ -3018,6 +3049,9 @@ ul li {
   }
   .md\:h-8{
     height: 2rem;
+  }
+  .md\:h-7{
+    height: 1.75rem;
   }
   .md\:\!w-64{
     width: 16rem !important;

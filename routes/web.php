@@ -39,6 +39,10 @@ Route::get('privacy', function () {
     return view('pages.privacy');
 })->name('privacy');
 
+Route::get('rgpd', function () {
+    return view('pages.rgpd');
+})->name('rgpd');
+
 Route::get('/analyze/result', [AnalyzeController::class, 'show'])->name('analyze.result');
 
 require __DIR__.'/auth.php';
