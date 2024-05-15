@@ -1,5 +1,6 @@
 <template>
-    <FlashMessage :message="message" :errors="error" :loading="loading" />
+    <FlashMessage :message="message" :errors="error" />
+    <Loader :loading="loading" />
     <div class="relative bg-gray-300 md:py-20 h-full">
         <div class="px-5 container h-90v flex mx-auto flex-col justify-center items-center h-full md:flex-row gap-20">
             <div class="left">
@@ -14,7 +15,7 @@
                         <Input v-model="url" id="url" name="url" type="url" placeholder="https://example.com" input-class="w-full pr-14" container-class="w-full">
                             <button 
                                 type="submit" 
-                                class="hover:cursor-pointer hover:scale-110 transition-all absolute inset-y-0 right-4"
+                                class="hover:cursor-pointer p-2 hover:scale-110 transition-all absolute inset-y-0 right-4"
                             >
                                 <img :src="'assets/svg/search.svg'" :alt="$t('homepage.analyze.input.alt')" class="w-8 h-full">
                             </button>
@@ -33,6 +34,7 @@
 <script setup lang="ts">
     import FlashMessage from '@v/components/FlashMessage.vue';
 import Input from '@v/components/Input.vue';
+import Loader from '@v/components/Loader.vue';
 import { setLocale } from '@v/utils/i18n';
 
     const htmlElement = document.documentElement;
@@ -54,13 +56,14 @@ const loading = ref(false);
 
 function analyzeUrl() {
     loading.value = true
-    
+    loading.value = true
+        
     axios.post('/api/analyze', { url: url.value }, { headers: { 'Accept-Language': htmlElement.lang } })
     .then(res => {
         error.value = false
-        message.value = res.data.message
+        // message.value = res.data.message
         loading.value = false
-        window.location.href = "/analyze/result";
+        window.location.href = `/analyze/result?url="${url.value}"`;
     })
     .catch(res => {
         if (res.response.data.errors === true) {

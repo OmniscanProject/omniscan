@@ -10,22 +10,22 @@
             @endif
         </a>
         <nav id="menu" class="hidden md:flex container mx-auto px-6 py-3 justify-center items-center">
-            <div class="hidden md:flex space-x-10">
-                <a href="{{ url('/') }}" class="text-gray-950 py-2 font-semibold">{{ __('Home') }}</a>
-                <a href="#about" class="text-gray-950 py-2 font-semibold">{{ __('About Us') }}</a>
-                <a href="#services" class="text-gray-950  py-2 font-semibold">{{ __('Services') }}</a>
+            <div class="hidden md:flex space-x-20">
+                <a href="{{ url('/') }}" class="text-black py-2">{{ __('Home') }}</a>
+                <a href="#about" class="text-black py-2">{{ __('About Us') }}</a>
+                <a href="#services" class="text-black  py-2">{{ __('Services') }}</a>
             </div>
             {{-- <div class="hidden md:flex space-x-4">
                 @if (!Auth::guard('customer')->user())
-                <a href="{{ url('/register') }}" class="text-gray-950 py-2 font-semibold">Inscription</a>
+                <a href="{{ url('/register') }}" class="text-black py-2 font-semibold">Inscription</a>
                 @endif
                 @if (!Auth::guard('customer')->user())
-                    <a href="{{ url('/login') }}" class="text-gray-950 py-2 font-semibold">Connexion</a>
+                    <a href="{{ url('/login') }}" class="text-black py-2 font-semibold">Connexion</a>
             @endif
             @if (Auth::guard('customer')->user())
             <form method="POST" action="{{ route('logout') }}">
                 @csrf
-                <a class="text-gray-950  py-2 font-semibold"
+                <a class="text-black  py-2 font-semibold"
                     :href="route('logout')"
                     onclick="event.preventDefault();
                             this.closest('form').submit();">
@@ -39,22 +39,24 @@
    </div>
 
     <div class="mobile flex md:hidden py-5 px-5 container mx-auto items-center justify-between h-full">
-        @if (request()->is('/') || request()->routeIs('homepage'))
-            <h1>
-        @endif
-            <x-application-logo />
-        @if (request()->is('/') || request()->routeIs('homepage'))
-            </h1>
-        @endif
+        <a href="/">
+            @if (request()->is('/') || request()->routeIs('homepage'))
+                <h1>
+            @endif
+                <x-application-logo />
+            @if (request()->is('/') || request()->routeIs('homepage'))
+                </h1>
+            @endif
+        </a>
         <button data-trigger="menu-mobile" aria-label="button" class="md:hidden pt-1">
             <img src="{{ asset('assets/svg/burger.svg') }}" alt="burger" class="fill-current pointer-events-none">
         </button>
     </div>
     <nav data-target="menu-mobile" id="menu-mobile" class="absolute w-full shadow rounded-b-xl z-10 bg-white">
         <div class="px-6 py-3 flex flex-col justify-center items-start">
-            <a href="{{ url('/') }}" class="text-gray-950 py-3 font-semibold">{{ __('Home') }}</a>
-            <a href="#about" class="text-gray-950 py-3 font-semibold">{{ __('About Us') }}</a>
-            <a href="#services" class="text-gray-950  py-3 font-semibold">{{ __('Services') }}</a>
+            <a href="{{ url('/') }}" class="text-black py-3">{{ __('Home') }}</a>
+            <a href="#about" class="text-black py-3">{{ __('About Us') }}</a>
+            <a href="#services" class="text-black  py-3">{{ __('Services') }}</a>
             @include('layouts.header.navigation')
         </div>
     </nav>

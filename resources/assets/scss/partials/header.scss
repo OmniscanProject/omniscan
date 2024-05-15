@@ -13,6 +13,11 @@ header {
         }
     }
 
+    .logo,.functionalities .divider {
+        top: -3px;
+        position: relative;
+    }
+
     .functionalities {
         width: inherit;
         .trigger-sub-menu {
