@@ -18,7 +18,7 @@
         @livewireScripts
     </head>
     <body class="antialiased">
-        <div class="min-h-screen">
+        <div class="h-screen">
             @include('layouts.header')
 
             <div class="flash-messages">

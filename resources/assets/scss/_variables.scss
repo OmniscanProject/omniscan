@@ -7,10 +7,21 @@ $font-size-base: 0.9rem;
 $line-height-base: 1.6;
 
 @layer base {
-    :root {
-      --color-primary: #0048EA;
-      --color-secondary: #E6E6E6;
-      --color-tertiary: #00E28B;
-      --color-quaternary: #E761FF;
-    }
+  :root {
+    --color-primary: #0048EA;
+    --color-secondary: #E6E6E6;
+    --color-tertiary: #00E28B;
+    --color-quaternary: #E761FF;
   }
+}
+
+.bg-gradient-primary {
+  background: linear-gradient(225deg, rgba(57,36,255,1) 24%, rgba(2,2,2,1) 100%);
+}
+.bg-gradient-secondary {
+  background: linear-gradient(225deg, rgba(57,36,255,1) 35%, rgba(231,97,255,1) 100%);
+}
+.bg-gradient-tertiary {
+  background: linear-gradient(225deg, rgba(57,36,255,1) 24%, rgba(0,226,139,1) 100%);
+}
+

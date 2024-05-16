@@ -1,12 +1,46 @@
 #analyze-section {
     height: 94svh;
     @media (min-width: 768px) {
-        height: 90svh;
+        height:  90svh;
+    }
+
+    .banner {
+        height: 96%;
+        @media (min-width: 768px) {
+            height:  93%;
+        }
+    }
+    .scroll-down {
+        top: -6.1%;
+        height: 10%;
+        @media (min-width: 768px) {
+            top: -8.1%;
+            height: 15%;
+        }
+        &:hover {
+            img {
+                animation: shake 0.2s;
+                animation-iteration-count: infinite;
+            }
+        }
     }
 }
+@keyframes shake {
+    0% { transform: rotate(0deg); }
+    10% { transform: rotate(-4deg); }
+    20% { transform: rotate(-3deg); }
+    30% { transform: rotate(-2deg); }
+    40% { transform: rotate(-1deg); }
+    50% { transform: rotate(0deg); }
+    60% { transform: rotate(1deg); }
+    70% { transform: rotate(2deg); }
+    80% { transform: rotate(3deg); }
+    90% { transform: rotate(4deg); }
+    100% { transform: rotate(0deg); }
+  }
 
-#features-section {
-    .feature-list {
+#objective-section {
+    .objective-list {
         .slick-next {
             right: 0;
         }
@@ -15,9 +49,26 @@
         }
     }
 }
-
-#services-section,  #products-section  {
-    .service-list, .product-list {
+#objective-section {
+    .objective-list {
+        .item {
+            @media (min-width: 768px) {
+                max-height: 400px;
+                max-width: 350px;
+            }
+            .img-container {
+                // max-width: 300px;
+                // max-height: 300px;
+                img {
+                    max-width: 163px;
+                    max-height: 157px;
+                }
+            }
+        }
+    }
+}
+#discover-section,  #products-section  {
+    .discover-list, .product-list {
         .slick-dots {
             position: relative;
             button {
@@ -27,6 +78,16 @@
             }
         }
     }
+}
+#slogan-section {
+    height: 36svh;
+    @media (min-width: 730px) {
+        height:  42svh;
+    }
+    @media (min-width: 768px) {
+        height:  62svh;
+    }
+
 }
 #products-section {
     .product-list {

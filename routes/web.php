@@ -27,6 +27,10 @@ Route::get('about', function () {
     return view('pages.about');
 })->name('about');
 
+Route::get('services', function () {
+    return view('pages.services');
+})->name('services');
+
 Route::get('cgv', function () {
     return view('pages.cgv');
 })->name('cgv');

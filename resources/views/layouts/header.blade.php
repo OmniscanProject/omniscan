@@ -12,8 +12,8 @@
         <nav id="menu" class="hidden md:flex container mx-auto px-6 py-3 justify-center items-center">
             <div class="hidden md:flex md:space-x-10 lg:space-x-20">
                 <a href="{{ url('/') }}" class="text-black py-2">{{ __('Home') }}</a>
-                <a href="#about" class="text-black py-2">{{ __('About Us') }}</a>
-                <a href="#services" class="text-black  py-2">{{ __('Services') }}</a>
+                <a href="{{ route('about') }}" class="text-black py-2">{{ __('About Us') }}</a>
+                <a href="{{ route('services') }}" class="text-black  py-2">{{ __('Services') }}</a>
             </div>
             {{-- <div class="hidden md:flex space-x-4">
                 @if (!Auth::guard('customer')->user())
@@ -54,9 +54,9 @@
     </div>
     <nav data-target="menu-mobile" id="menu-mobile" class="absolute w-full shadow rounded-b-xl z-10 bg-white">
         <div class="px-6 py-3 flex flex-col justify-center items-start">
-            <a href="{{ url('/') }}" class="text-black py-3">{{ __('Home') }}</a>
-            <a href="#about" class="text-black py-3">{{ __('About Us') }}</a>
-            <a href="#services" class="text-black  py-3">{{ __('Services') }}</a>
+            <a href="{{ url('/') }}" class="text-black py-2">{{ __('Home') }}</a>
+            <a href="{{ route('about') }}" class="text-black py-2">{{ __('About Us') }}</a>
+            <a href="{{ route('services') }}" class="text-black  py-2">{{ __('Services') }}</a>
             @include('layouts.header.navigation')
         </div>
     </nav>

@@ -1,13 +1,26 @@
 {
     "homepage": {
         "analyze" : {
-            "title": "Test & discover your website vulnerabilities !",
-            "subtitle": "Start your free trial now",
+            "title": {
+                "text": "Test the security of your site in an instant for <span class='text-tertiary'>free</span> !",
+                "free": "free"
+            },
+            "subtitle": {
+                "text": "Get your cyberscore!",
+                "img": {
+                    "alt": "Omniscan - Green arrow right down"
+                }
+            },
             "input": {
-                "alt" : "Search logo"
+                "alt" : "Omniscan - Search logo"
             },
             "img": {
-                "alt": "Computer image"
+                "alt": "Omniscan - Screen gif"
+            },
+            "scroll": {
+                "img": {
+                    "alt": "Omniscan - Arrow down"
+                }
             }
         }
     }

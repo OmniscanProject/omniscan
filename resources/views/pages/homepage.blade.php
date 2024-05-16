@@ -28,7 +28,9 @@
     </div> --}}
 
     @include('pages.homepage.analyze')
-    @include('pages.homepage.services')
-    @include('pages.homepage.features')
+    @include('pages.homepage.discover')
+    @include('pages.homepage.slogan')
+    @include('pages.homepage.objective')
+    {{-- @include('pages.homepage.score') --}}
     @include('pages.homepage.products')
 </x-app-layout>

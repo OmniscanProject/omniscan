@@ -2,7 +2,7 @@
     <div :class="`relative ${containerClass}`">
         <input
             ref="input"
-            :class="`${inputClass} border-gray-300 py-2 px-4 h-14 focus:border-gray-300 focus:ring focus:ring-gray-300 focus:ring-opacity-50 rounded-full`"
+            :class="`${inputClass} border-black py-2 px-4 h-14 focus:border-gray-300 focus:ring focus:ring-gray-300 focus:ring-opacity-50 rounded-full`"
             :value="modelValue"
             :id="id"
             :name="name"

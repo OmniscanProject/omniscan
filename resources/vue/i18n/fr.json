@@ -1,13 +1,26 @@
 {
     "homepage": {
         "analyze" : {
-            "title": "Testez et découvrez les vulnérabilités de votre site web !",
-            "subtitle": "Effectuez un essai gratuitement",
+            "title": {
+                "text": "Testez la sécurité de votre site en un instant <span class='text-tertiary'>gratuitement</span> !",
+                "free": "gratuitement"
+            },
+            "subtitle": {
+                "text": "Obtenez votre cyberscore !",
+                "img": {
+                    "alt": "Omniscan - Fleche verte vers le bas à droite"
+                }
+            },
             "input": {
-                "alt" : "Logo de recherche"
+                "alt" : "Omniscan - Logo de recherche"
             },
             "img": {
-                "alt": "Image d'un ordinateur"
+                "alt": "Omniscan - Gif d'un écran"
+            },
+            "scroll": {
+                "img": {
+                    "alt": "Omniscan - Fleche vers le bas"
+                }
             }
         }
     }

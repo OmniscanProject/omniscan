@@ -1,6 +1,8 @@
 /**
  * @type {import('tailwindcss').Config} 
  */
+
+
 export default {
     content: [
         './src/**/*.{html,js}',
@@ -17,7 +19,15 @@ export default {
                     sm: '5rem'
                 },
             },
-            extend: {},
+            extend: {
+                boxShadow: {
+                    button: '10px 10px 0px 0px black',
+                    container: '20px 20px 0px 0px black'
+                },
+                fontSize: {
+                    '4xl': ['2.25rem', '3rem']
+                },
+            },
             colors: {
                 primary: 'var(--color-primary)',
                 secondary: 'var(--color-secondary)',

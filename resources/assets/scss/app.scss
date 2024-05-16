@@ -15,20 +15,50 @@
 @import './partials/header.scss';
 @import './partials/reset.scss';
 
-// Flash message
-.flash-messages {
-    position: fixed;
-    z-index: 20;
-    right: 0;
-    left: 0;
+// Components
+/// Input 
+.primary-button {
+    width: calc(100% - 10px);
+}
 
-    .alert {
-        transform: translateY(30px);
-        transition: ease 1s;
-        .btn-close {
-            svg {
-                width: 10px;
-                height: 10px;
+// Pages
+#login-page, #forgot-password-page {
+    @media (min-width: 768px) {
+        height: 90svh;
+    }
+}
+#register-page {
+    @media (min-width: 1868px) {
+        height: 90svh;
+    }
+}
+
+#login-page, #register-page, #forgot-password-page {
+    .login-container, .register-container {
+        width: calc(100% - 20px);
+        @media (min-width: 768px) {
+            width: 90%;
+        }
+        @media (min-width: 1024px) {
+            width: 80%;
+        }
+        @media (min-width: 1280px) {
+            width: 65%;
+        }
+        @media (min-width: 2000px) {
+            width: 55%;
+        }
+    }
+}
+
+#services-page {
+    .service-list {
+        .slick-dots {
+            position: relative;
+            button {
+                &::before {
+                    font-size: 10px;
+                }
             }
         }
     }

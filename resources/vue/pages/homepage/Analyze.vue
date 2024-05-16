@@ -1,32 +1,33 @@
 <template>
     <FlashMessage :message="message" :errors="error" />
     <Loader :loading="loading" />
-    <div class="relative bg-gray-300 md:py-20 h-full">
-        <div class="px-5 container h-90v flex mx-auto flex-col justify-center items-center h-full md:flex-row gap-20">
-            <div class="left">
-                <div>
-                    <h2 class="text-xl md:text-3xl font-bold font-title">{{ $t('homepage.analyze.title') }}</h2>
-                    <p class="flex items-center justify-start my-6">{{ $t('homepage.analyze.subtitle') }} <x-coolicon-arrow-sub-right-down class="h-4 md:h-5 ml-2"/></p>
-                    <form
-                        id="analyze-form"
-                        @submit.prevent="analyzeUrl"
-                    >
+    <div class="banner relative bg-primary md:py-20 h-full rounded-b-[40px] md:rounded-b-[80px]">
+        <div class="px-5 container h-90v flex mx-auto flex-col justify-center items-center h-full lg:flex-row gap-12 md:gap-18">
+            <div class="left w-full lg:w-2/3 xl:px-20">
+                <h2 class="text-2xl md:text-4xl font-semibold font-title text-white" v-html="$t('homepage.analyze.title.text')"></h2>
+                <p class="flex text-white text-md md:text-lg my-5">{{ $t('homepage.analyze.subtitle.text') }}<img :src="'assets/svg/little-green-arrow-bottom-right.svg'" :alt="$t('homepage.analyze.subtitle.img.alt')" class="ml-4"></p>
+                <form
+                    id="analyze-form"
+                    @submit.prevent="analyzeUrl"
+                >
 
-                        <Input v-model="url" id="url" name="url" type="url" placeholder="https://example.com" input-class="w-full pr-14" container-class="w-full">
-                            <button 
-                                type="submit" 
-                                class="hover:cursor-pointer p-2 hover:scale-110 transition-all absolute inset-y-0 right-4"
-                            >
-                                <img :src="'assets/svg/search.svg'" :alt="$t('homepage.analyze.input.alt')" class="w-8 h-full">
-                            </button>
-                        </Input>
-                    </form>
-                </div>
+                    <Input v-model="url" id="url" name="url" type="url" placeholder="https://example.com" input-class="w-full pr-14 text-md md:text-xl" container-class="w-full">
+                        <button 
+                            type="submit" 
+                            class="hover:cursor-pointer p-2 hover:scale-110 transition-all absolute inset-y-0 right-4"
+                        >
+                            <img :src="'assets/svg/search.svg'" :alt="$t('homepage.analyze.input.alt')" class="w-8 h-full">
+                        </button>
+                    </Input>
+                </form>
             </div>
-            <div class="right">
-                <img :src="'assets/svg/computer.svg'" :alt="$t('homepage.analyze.img.alt')" class="w-full">
+            <div class="right w-full lg:w-1/3">
+                <img :src="'assets/gif/screen.gif'" :alt="$t('homepage.analyze.img.alt')" class="mx-auto">
             </div>
         </div>
+    </div>
+    <div @click="scrollTo()" class="scroll-down hover:cursor-pointer relative bg-primary rounded-[50%] flex items-center justify-center p-18 w-36 h-36 md:w-44 md:h-44 left-0 right-0 -bottom-16 m-auto z-40 -top-[110px]">
+        <img :src="'assets/svg/green-arrow-down.svg'" :alt="$t('homepage.analyze.scroll.img.alt')" class="relative w-12 md:w-16 h-12 md:h-16 mt-6 md:mt-10">
     </div>
 </template>
 
@@ -56,7 +57,6 @@ const loading = ref(false);
 
 function analyzeUrl() {
     loading.value = true
-    loading.value = true
         
     axios.post('/api/analyze', { url: url.value }, { headers: { 'Accept-Language': htmlElement.lang } })
     .then(res => {
@@ -74,5 +74,8 @@ function analyzeUrl() {
     })
 }
 
+function scrollTo() {
+    document.getElementById("discover-section").scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+}
 </script>
 

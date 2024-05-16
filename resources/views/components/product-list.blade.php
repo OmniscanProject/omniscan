@@ -16,7 +16,7 @@
             {{ __('Monthly billing') }}
         </button>
     </div>
-    <ol class="product-list mt-6 flex justify-center items-stretch md:gap-5 gap-20">
+    <ol class="product-list mt-6 flex justify-center items-stretch gap-20">
         @foreach ($products as $product)
             @php
                 $subscriptions = ($product->prices()->where(['active' => 1])->get());
@@ -29,7 +29,7 @@
                 }
             @endphp
 
-            <li class="px-3 md:flex-1 md:max-w-80 h-full md:h-inherit">
+            <li class="px-2 md:flex-1 md:max-w-80 h-full md:h-inherit">
                 <x-product-card :product="$product"/>
             </li>
         @endforeach

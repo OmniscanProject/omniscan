@@ -1,6 +1,5 @@
-import 'slick-carousel';
-
 import $ from 'jquery';
+import 'slick-carousel';
 
 // Vue
 import en from '@v/i18n/en.json';
@@ -10,9 +9,9 @@ import { createApp } from 'vue';
 import { createI18n } from 'vue-i18n';
 
 document.addEventListener('DOMContentLoaded', () => {
-    const initServiceSlider = () => {
+    const initDiscoverSlider = () => {
         if(window.innerWidth <= 767) {
-            $(".service-list").not('.slick-initialized').slick({
+            $(".discover-list").not('.slick-initialized').slick({
                 infinite: true,
                 slidesToShow: 1,
                 slidesToScroll: 1,
@@ -20,17 +19,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 dots: true
             });
         } else {
-            $(".service-list").unslick;
+            $(".discover-list").unslick;
         }
     }
-    initServiceSlider();
+    initDiscoverSlider();
     window.addEventListener('resize', () => {
-        initServiceSlider();
+        initDiscoverSlider();
     });
 
-    const initFeatureSlider = () => {
+    const initObjectiveSlider = () => {
         if(window.innerWidth <= 767) {
-            $(".feature-list").not('.slick-initialized').slick({
+            $(".objective-list").not('.slick-initialized').slick({
                 infinite: true,
                 slidesToShow: 1,
                 slidesToScroll: 1,
@@ -38,12 +37,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 dots: false
             });
         } else {
-            $(".feature-list").unslick;
+            $(".objective-list").unslick;
         }
     }
-    initFeatureSlider();
+    initObjectiveSlider();
     window.addEventListener('resize', () => {
-        initFeatureSlider();
+        initObjectiveSlider();
     });
 
     const initProductSlider = () => {
@@ -55,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 arrows: false,
                 dots: true,
                 centerMode: true,
-                centerPadding: '40px'
+                centerPadding: '30px'
             });
         } else {
             $(".feature-list").unslick;

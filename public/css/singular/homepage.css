@@ -6,19 +6,101 @@
     height: 90svh;
   }
 }
+#analyze-section .banner {
+  height: 96%;
+}
+@media (min-width: 768px) {
+  #analyze-section .banner {
+    height: 93%;
+  }
+}
+#analyze-section .scroll-down {
+  top: -6.1%;
+  height: 10%;
+}
+@media (min-width: 768px) {
+  #analyze-section .scroll-down {
+    top: -8.1%;
+    height: 15%;
+  }
+}
+#analyze-section .scroll-down:hover img {
+  animation: shake 0.2s;
+  animation-iteration-count: infinite;
+}
 
-#features-section .feature-list .slick-next {
+@keyframes shake {
+  0% {
+    transform: rotate(0deg);
+  }
+  10% {
+    transform: rotate(-4deg);
+  }
+  20% {
+    transform: rotate(-3deg);
+  }
+  30% {
+    transform: rotate(-2deg);
+  }
+  40% {
+    transform: rotate(-1deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  60% {
+    transform: rotate(1deg);
+  }
+  70% {
+    transform: rotate(2deg);
+  }
+  80% {
+    transform: rotate(3deg);
+  }
+  90% {
+    transform: rotate(4deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+#objective-section .objective-list .slick-next {
   right: 0;
 }
-#features-section .feature-list .slick-prev {
+#objective-section .objective-list .slick-prev {
   left: 0;
 }
 
-#services-section .service-list .slick-dots, #services-section .product-list .slick-dots, #products-section .service-list .slick-dots, #products-section .product-list .slick-dots {
+@media (min-width: 768px) {
+  #objective-section .objective-list .item {
+    max-height: 400px;
+    max-width: 350px;
+  }
+}
+#objective-section .objective-list .item .img-container img {
+  max-width: 163px;
+  max-height: 157px;
+}
+
+#discover-section .discover-list .slick-dots, #discover-section .product-list .slick-dots, #products-section .discover-list .slick-dots, #products-section .product-list .slick-dots {
   position: relative;
 }
-#services-section .service-list .slick-dots button::before, #services-section .product-list .slick-dots button::before, #products-section .service-list .slick-dots button::before, #products-section .product-list .slick-dots button::before {
+#discover-section .discover-list .slick-dots button::before, #discover-section .product-list .slick-dots button::before, #products-section .discover-list .slick-dots button::before, #products-section .product-list .slick-dots button::before {
   font-size: 10px;
+}
+
+#slogan-section {
+  height: 36svh;
+}
+@media (min-width: 730px) {
+  #slogan-section {
+    height: 42svh;
+  }
+}
+@media (min-width: 768px) {
+  #slogan-section {
+    height: 62svh;
+  }
 }
 
 #products-section .product-list li {
