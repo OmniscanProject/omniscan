@@ -103,8 +103,21 @@
   }
 }
 
-#products-section .product-list li {
+#products-section .interval-container .background-focus {
+  transition: all 0.3s ease-in-out;
+}
+#products-section .interval-container .background-focus.active {
+  transform: translateX(50%);
+}
+#products-section .product-list .product {
   height: inherit !important;
+  transition: all 0.3s ease-in-out;
+  display: flex;
+  flex: 1 1 0%;
+}
+#products-section .product-list .product.disabled {
+  display: none;
+  flex: unset;
 }
 #products-section .product-list .slick-track {
   display: flex;

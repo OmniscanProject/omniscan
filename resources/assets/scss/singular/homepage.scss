@@ -90,9 +90,24 @@
 
 }
 #products-section {
+    .interval-container {
+        .background-focus {
+            transition: all 0.3s ease-in-out;
+            &.active {
+                transform: translateX(50%)
+            }
+        }
+    }
     .product-list {
-        li {
+        .product {
             height: inherit !important;
+            transition: all 0.3s ease-in-out;
+            display: flex;
+            flex: 1 1 0%;
+            &.disabled {
+                display: none;
+                flex: unset;
+            }
         }
         .slick-track {
             display: flex;

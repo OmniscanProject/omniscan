@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 dots: true
             });
         } else {
-            $(".discover-list").unslick;
+            $(".discover-list");
         }
     }
     initDiscoverSlider();
@@ -44,8 +44,9 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('resize', () => {
         initObjectiveSlider();
     });
-
-    const initProductSlider = () => {
+    
+    // Products section
+    const initProductSlider = () => {        
         if(window.innerWidth <= 767) {
             $(".product-list").not('.slick-initialized').slick({
                 infinite: true,
@@ -57,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 centerPadding: '30px'
             });
         } else {
-            $(".feature-list").unslick;
+            $(".product-list").unslick;
         }
     }
     initProductSlider();
@@ -65,6 +66,57 @@ document.addEventListener('DOMContentLoaded', () => {
         initProductSlider();
     });
 
+    const pricing = (window as any).pricing;
+    const intervalBtns = document.querySelectorAll('.interval-btn');
+    const backgroundFocus = document.querySelector('.background-focus');
+
+    let products = document.querySelectorAll('.product');
+
+    if(Object.keys(pricing).length){
+        const initValues = (products, interval = 'month') => {
+            if(products.length > 0){        
+                products.forEach(product => {
+
+                    let productCard = product.querySelector('.product-card');
+                    let productId = productCard.dataset.product;
+
+                    console.log(pricing[productId].hasOwnProperty(interval));
+                    if(!pricing[productId].hasOwnProperty(interval)){
+                        product.classList.add('disabled');
+                        return;
+                    } else {
+                        product.classList.remove('disabled');
+                    }
+
+                    let priceSpan = productCard.querySelector("span[data-price]");
+                    let intervalSpan = productCard.querySelector("span[data-interval]");
+                    let priceIdInput = productCard.querySelector("input[name='price_id']");
+                    priceSpan.innerText = pricing[productCard.dataset.product][interval]['price'];
+                    intervalSpan.innerText = pricing[productCard.dataset.product][interval]['name'];
+                    priceIdInput.value = pricing[productCard.dataset.product][interval]['id'];
+
+                });
+            }
+        }
+        intervalBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                console.log('ddd');
+                
+                $(".product-list").on('reInit', function(event, slick, direction){
+                    console.log(event);
+                    console.log(slick);
+                    console.log(direction);
+                });
+                intervalBtns.forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                backgroundFocus.classList.toggle('active');
+
+                let interval = (btn as HTMLElement).dataset.interval;
+                initValues(products, interval);
+            });
+        });
+    }
 
     //Vue
     const i18n = createI18n({

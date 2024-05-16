@@ -22256,6 +22256,9 @@ __webpack_require__.r(__webpack_exports__);
       return props.loading == true;
     }, function () {
       visible.value = true;
+      if (props.loading == false) {
+        visible.value = false;
+      }
     });
     var __returned__ = {
       props: props,
@@ -22323,9 +22326,9 @@ __webpack_require__.r(__webpack_exports__);
         loading.value = false;
         window.location.href = "/analyze/result?url=\"".concat(url.value, "\"");
       })["catch"](function (res) {
+        loading.value = false;
         if (res.response.data.errors === true) {
           error.value = true;
-          loading.value = false;
           message.value = res.response.data.message;
         }
       });
@@ -22508,7 +22511,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     loading: $setup.loading
   }, null, 8 /* PROPS */, ["loading"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", {
     "class": "text-2xl md:text-4xl font-semibold font-title text-white",
-    innerHTML: _ctx.$t('homepage.analyze.title.text')
+    innerHTML: _ctx.$t('homepage.analyze.title.text', {
+      free: "<span class='text-tertiary'>".concat(_ctx.$t('homepage.analyze.title.free'), "</span>")
+    })
   }, null, 8 /* PROPS */, _hoisted_4), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)((0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$t('homepage.analyze.subtitle.text')), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
     src: 'assets/svg/little-green-arrow-bottom-right.svg',
     alt: _ctx.$t('homepage.analyze.subtitle.img.alt'),
@@ -49337,7 +49342,7 @@ if ((true)) ;
 /***/ ((module) => {
 
 "use strict";
-module.exports = /*#__PURE__*/JSON.parse('{"homepage":{"analyze":{"title":{"text":"Test the security of your site in an instant for <span class=\'text-tertiary\'>free</span> !","free":"free"},"subtitle":{"text":"Get your cyberscore!","img":{"alt":"Omniscan - Green arrow right down"}},"input":{"alt":"Omniscan - Search logo"},"img":{"alt":"Omniscan - Screen gif"},"scroll":{"img":{"alt":"Omniscan - Arrow down"}}}}}');
+module.exports = /*#__PURE__*/JSON.parse('{"homepage":{"analyze":{"title":{"text":"Test the security of your site in an instant for {free}","free":"free"},"subtitle":{"text":"Get your cyberscore!","img":{"alt":"Omniscan - Green arrow right down"}},"input":{"alt":"Omniscan - Search logo"},"img":{"alt":"Omniscan - Screen gif"},"scroll":{"img":{"alt":"Omniscan - Arrow down"}}}}}');
 
 /***/ }),
 
@@ -49348,7 +49353,7 @@ module.exports = /*#__PURE__*/JSON.parse('{"homepage":{"analyze":{"title":{"text
 /***/ ((module) => {
 
 "use strict";
-module.exports = /*#__PURE__*/JSON.parse('{"homepage":{"analyze":{"title":{"text":"Testez la sécurité de votre site en un instant <span class=\'text-tertiary\'>gratuitement</span> !","free":"gratuitement"},"subtitle":{"text":"Obtenez votre cyberscore !","img":{"alt":"Omniscan - Fleche verte vers le bas à droite"}},"input":{"alt":"Omniscan - Logo de recherche"},"img":{"alt":"Omniscan - Gif d\'un écran"},"scroll":{"img":{"alt":"Omniscan - Fleche vers le bas"}}}}}');
+module.exports = /*#__PURE__*/JSON.parse('{"homepage":{"analyze":{"title":{"text":"Testez la sécurité de votre site en un instant {free}","free":"gratuitement"},"subtitle":{"text":"Obtenez votre cyberscore !","img":{"alt":"Omniscan - Fleche verte vers le bas à droite"}},"input":{"alt":"Omniscan - Logo de recherche"},"img":{"alt":"Omniscan - Gif d\'un écran"},"scroll":{"img":{"alt":"Omniscan - Fleche vers le bas"}}}}}');
 
 /***/ })
 
@@ -49473,7 +49478,7 @@ document.addEventListener('DOMContentLoaded', function () {
         dots: true
       });
     } else {
-      jquery__WEBPACK_IMPORTED_MODULE_0___default()(".discover-list").unslick;
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()(".discover-list");
     }
   };
   initDiscoverSlider();
@@ -49497,6 +49502,7 @@ document.addEventListener('DOMContentLoaded', function () {
   window.addEventListener('resize', function () {
     initObjectiveSlider();
   });
+  // Products section
   var initProductSlider = function initProductSlider() {
     if (window.innerWidth <= 767) {
       jquery__WEBPACK_IMPORTED_MODULE_0___default()(".product-list").not('.slick-initialized').slick({
@@ -49509,13 +49515,57 @@ document.addEventListener('DOMContentLoaded', function () {
         centerPadding: '30px'
       });
     } else {
-      jquery__WEBPACK_IMPORTED_MODULE_0___default()(".feature-list").unslick;
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()(".product-list").unslick;
     }
   };
   initProductSlider();
   window.addEventListener('resize', function () {
     initProductSlider();
   });
+  var pricing = window.pricing;
+  var intervalBtns = document.querySelectorAll('.interval-btn');
+  var backgroundFocus = document.querySelector('.background-focus');
+  var products = document.querySelectorAll('.product');
+  if (Object.keys(pricing).length) {
+    var initValues = function initValues(products) {
+      var interval = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'month';
+      if (products.length > 0) {
+        products.forEach(function (product) {
+          var productCard = product.querySelector('.product-card');
+          var productId = productCard.dataset.product;
+          console.log(pricing[productId].hasOwnProperty(interval));
+          if (!pricing[productId].hasOwnProperty(interval)) {
+            product.classList.add('disabled');
+            return;
+          } else {
+            product.classList.remove('disabled');
+          }
+          var priceSpan = productCard.querySelector("span[data-price]");
+          var intervalSpan = productCard.querySelector("span[data-interval]");
+          var priceIdInput = productCard.querySelector("input[name='price_id']");
+          priceSpan.innerText = pricing[productCard.dataset.product][interval]['price'];
+          intervalSpan.innerText = pricing[productCard.dataset.product][interval]['name'];
+          priceIdInput.value = pricing[productCard.dataset.product][interval]['id'];
+        });
+      }
+    };
+    intervalBtns.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        console.log('ddd');
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()(".product-list").on('reInit', function (event, slick, direction) {
+          console.log(event);
+          console.log(slick);
+          console.log(direction);
+        });
+        intervalBtns.forEach(function (btn) {
+          btn.classList.remove('active');
+        });
+        backgroundFocus.classList.toggle('active');
+        var interval = btn.dataset.interval;
+        initValues(products, interval);
+      });
+    });
+  }
   //Vue
   var i18n = (0,vue_i18n__WEBPACK_IMPORTED_MODULE_6__.createI18n)({
     locale: "fr",

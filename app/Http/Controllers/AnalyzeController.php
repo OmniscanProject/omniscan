@@ -10,6 +10,6 @@ class AnalyzeController extends Controller
 {
     public function show()
     {
-        return view('pages.analyze-results');
+        return view('pages.free-analyze-results');
     }
 }

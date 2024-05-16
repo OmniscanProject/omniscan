@@ -17,6 +17,10 @@ const visible = ref(false)
 
 watch(() => props.loading == true, () => {
     visible.value = true;
+
+    if(props.loading == false) {
+        visible.value = false;
+    }
 });
 
 </script>

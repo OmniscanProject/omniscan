@@ -2,7 +2,7 @@
     "homepage": {
         "analyze" : {
             "title": {
-                "text": "Test the security of your site in an instant for <span class='text-tertiary'>free</span> !",
+                "text": "Test the security of your site in an instant for {free}",
                 "free": "free"
             },
             "subtitle": {

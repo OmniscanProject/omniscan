@@ -4,7 +4,7 @@
     <div class="banner relative bg-primary md:py-20 h-full rounded-b-[40px] md:rounded-b-[80px]">
         <div class="px-5 container h-90v flex mx-auto flex-col justify-center items-center h-full lg:flex-row gap-12 md:gap-18">
             <div class="left w-full lg:w-2/3 xl:px-20">
-                <h2 class="text-2xl md:text-4xl font-semibold font-title text-white" v-html="$t('homepage.analyze.title.text')"></h2>
+                <h2 class="text-2xl md:text-4xl font-semibold font-title text-white" v-html="$t('homepage.analyze.title.text', {free: `<span class='text-tertiary'>${ $t('homepage.analyze.title.free') }</span>`})"></h2>
                 <p class="flex text-white text-md md:text-lg my-5">{{ $t('homepage.analyze.subtitle.text') }}<img :src="'assets/svg/little-green-arrow-bottom-right.svg'" :alt="$t('homepage.analyze.subtitle.img.alt')" class="ml-4"></p>
                 <form
                     id="analyze-form"
@@ -66,9 +66,9 @@ function analyzeUrl() {
         window.location.href = `/analyze/result?url="${url.value}"`;
     })
     .catch(res => {
+        loading.value = false
         if (res.response.data.errors === true) {
             error.value = true
-            loading.value = false
             message.value = res.response.data.message
         }
     })

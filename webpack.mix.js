@@ -16,7 +16,7 @@ mix.webpackConfig({
     new webpack.ProvidePlugin({
       $: 'jquery',
       jQuery: 'jquery'
-    })
+    }),
   ],
 });
 
