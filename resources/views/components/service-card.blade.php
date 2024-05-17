@@ -1,13 +1,29 @@
 @props([
     'class' => '',
-    'text' => '',
+    'title' => '',
+    'texts' => '',
     'image' => ''
 ])
 
 
-<div class="text-center rounded-xl px-4 lg:px-8 xl:px-14 py-16 lg:py-18 xl:py-24 {{ $class }}">
+<div class="service-card text-center rounded-xl px-4 lg:px-8 xl:px-10 py-14 lg:py-16 xl:py-20 h-full {{ $class }}">
     <div class="flex flex-col items-center justify-center w-full">
         <img src="{{ asset($image) }}" alt="OmniScan - Service image" class="h-2/3 w-2/3">
-        <p class="text-md text-white mt-8 md:mt-16 h-1/3 w-2/3">{{ $text }}</p>
+        <div class="xl:h-20 mt-8 md:mt-12 flex items-start justify-center w-full">
+            <h2 class="font-title text-white text-lg text-center w-2/3">{{ $title }}</h2>
+        </div>
+        <div class="text-md text-white mt-6 w-2/3 text-left">
+            @if(is_array($texts) && !empty($texts))
+                @foreach($texts as $title => $text)
+                    <div class="mt-4"> 
+                        <p>{{ $title }}</p> 
+                        <p class="pl-2 mt-2">{{ $text }}</p>
+                    </div>
+                @endforeach
+
+            @else
+                {!! $texts !!}
+            @endif
+        </div>
     </div>
 </div>

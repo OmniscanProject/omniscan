@@ -1,9 +1,10 @@
-import requests
-from bs4 import BeautifulSoup
-from urllib.parse import urljoin
+import argparse
 import socket
 from concurrent.futures import ThreadPoolExecutor, as_completed
-import argparse
+from urllib.parse import urljoin
+
+import requests
+from bs4 import BeautifulSoup
 
 # Configuration des en-têtes HTTP pour la requête
 headers = {
@@ -128,7 +129,7 @@ def calculate_score(results):
     return 'A' if score > 90 else 'B' if score > 75 else 'C' if score > 60 else 'D' if score > 45 else 'E' if score > 30 else 'F'
 
 def main_scan(url):
-    print("Scanning:", url)
+    print("Scanning:",url,sep="")
     with ThreadPoolExecutor() as executor:
         futures = {
             'security_headers': executor.submit(check_security_headers, url),
@@ -144,7 +145,7 @@ def main_scan(url):
         results = {key: future.result() for key, future in futures.items()}
 
     score = calculate_score(results)
-    print("Security score:", score)
+    print("Security score:",score,sep="")
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Scan a website for vulnerabilities.")

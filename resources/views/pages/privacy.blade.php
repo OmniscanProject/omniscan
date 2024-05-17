@@ -10,7 +10,7 @@
 
             @if($lang === 'fr')
                 <div class="content">
-                    <p class="text-md text-white mt-4">
+                    <p class="text-md text-white">
                         Chez OmniScan, nous nous engageons à protéger et à respecter votre vie privée. La présente politique de confidentialité a pour but de vous informer sur la manière dont nous recueillons, utilisons, partageons et protégeons vos informations personnelles lorsque vous visitez notre site web ou utilisez nos services. En accédant à notre site web ou en utilisant nos services, vous acceptez les pratiques décrites dans cette politique.
                     </p>
                     <p class="text-md text-white mt-4">
@@ -208,7 +208,7 @@
                 </div>
             @elseif($lang === 'en')
                 <div class="content">
-                    <p class="text-md text-white mt-4">
+                    <p class="text-md text-white">
                         At OmniScan, we are committed to protecting and respecting your privacy. This privacy policy aims to inform you about how we collect, use, share, and protect your personal information when you visit our website or use our services. By accessing our website or using our services, you agree to the practices described in this policy.
                     </p>
                     <p class="text-md text-white mt-4">

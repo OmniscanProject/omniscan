@@ -27,6 +27,12 @@ class AnalyzeController extends Controller
         $url = $request->input("url");
         Artisan::call('python:run-script', ['url' => $url]);
         $output = Artisan::output();
-        return ResponseClass::sendResponse($output,trans('messages.api.scripts.analyze'),200, false);
+        
+        $data = [
+            "score" => substr($output, strpos($output, "Security score:") + strlen("Security score:"), 1),
+            "url" => substr($output, strpos($output, "Scanning:") + strlen("Scanning:"), strpos($output, "\n", strpos($output, "Scanning:")) - (strpos($output, "Scanning:") + strlen("Scanning:")))
+        ];
+
+        return ResponseClass::sendResponse($data,trans('messages.api.scripts.analyze'),200, false);
     }
 }

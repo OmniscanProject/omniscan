@@ -38,6 +38,7 @@ mix.autoload({
 mix
 
 .sass('resources/assets/scss/app.scss', 'public/css')
+.sass('resources/assets/scss/tailwind.scss', 'public/css')
 .sass('resources/assets/scss/singular/homepage.scss', 'public/css/singular')
 .sass('resources/assets/scss/singular/dashboard_admin.scss', 'public/css/singular')
 

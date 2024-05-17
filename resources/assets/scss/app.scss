@@ -59,11 +59,32 @@
 
 #services-page {
     .service-list {
+        li {
+            height: inherit;
+        }
+        .service-card {
+            h2 {
+                overflow: hidden;
+                display: -webkit-box;
+                -webkit-line-clamp: 3;
+                        line-clamp: 3; 
+                -webkit-box-orient: vertical;
+            }
+        }
         .slick-dots {
             position: relative;
             button {
                 &::before {
                     font-size: 10px;
+                }
+            }
+        }
+        .slick-track {
+            display: flex;
+            .slick-slide {
+                height: inherit !important;
+                & > div {
+                    height: 100%;
                 }
             }
         }

@@ -17504,6 +17504,19 @@ return jQuery;
 
 /***/ }),
 
+/***/ "./resources/assets/scss/singular/dashboard_admin.scss":
+/*!*************************************************************!*\
+  !*** ./resources/assets/scss/singular/dashboard_admin.scss ***!
+  \*************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
 /***/ "./resources/assets/css/app.css":
 /*!**************************************!*\
   !*** ./resources/assets/css/app.css ***!
@@ -17530,10 +17543,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/assets/scss/singular/homepage.scss":
-/*!******************************************************!*\
-  !*** ./resources/assets/scss/singular/homepage.scss ***!
-  \******************************************************/
+/***/ "./resources/assets/scss/tailwind.scss":
+/*!*********************************************!*\
+  !*** ./resources/assets/scss/tailwind.scss ***!
+  \*********************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -17543,10 +17556,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/assets/scss/singular/dashboard_admin.scss":
-/*!*************************************************************!*\
-  !*** ./resources/assets/scss/singular/dashboard_admin.scss ***!
-  \*************************************************************/
+/***/ "./resources/assets/scss/singular/homepage.scss":
+/*!******************************************************!*\
+  !*** ./resources/assets/scss/singular/homepage.scss ***!
+  \******************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -20688,8 +20701,9 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 /******/ 		var installedChunks = {
 /******/ 			"/js/app": 0,
 /******/ 			"css/app": 0,
-/******/ 			"css/singular/dashboard_admin": 0,
-/******/ 			"css/singular/homepage": 0
+/******/ 			"css/singular/homepage": 0,
+/******/ 			"css/tailwind": 0,
+/******/ 			"css/singular/dashboard_admin": 0
 /******/ 		};
 /******/ 		
 /******/ 		// no chunk on demand loading
@@ -20739,11 +20753,12 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/singular/dashboard_admin","css/singular/homepage"], () => (__webpack_require__("./resources/assets/ts/app.ts")))
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/singular/dashboard_admin","css/singular/homepage"], () => (__webpack_require__("./resources/assets/scss/app.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/singular/dashboard_admin","css/singular/homepage"], () => (__webpack_require__("./resources/assets/scss/singular/homepage.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/singular/dashboard_admin","css/singular/homepage"], () => (__webpack_require__("./resources/assets/scss/singular/dashboard_admin.scss")))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/app","css/singular/dashboard_admin","css/singular/homepage"], () => (__webpack_require__("./resources/assets/css/app.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/singular/homepage","css/tailwind","css/singular/dashboard_admin"], () => (__webpack_require__("./resources/assets/ts/app.ts")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/singular/homepage","css/tailwind","css/singular/dashboard_admin"], () => (__webpack_require__("./resources/assets/scss/app.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/singular/homepage","css/tailwind","css/singular/dashboard_admin"], () => (__webpack_require__("./resources/assets/scss/tailwind.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/singular/homepage","css/tailwind","css/singular/dashboard_admin"], () => (__webpack_require__("./resources/assets/scss/singular/homepage.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/singular/homepage","css/tailwind","css/singular/dashboard_admin"], () => (__webpack_require__("./resources/assets/scss/singular/dashboard_admin.scss")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/app","css/singular/homepage","css/tailwind","css/singular/dashboard_admin"], () => (__webpack_require__("./resources/assets/css/app.css")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()

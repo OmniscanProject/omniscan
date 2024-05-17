@@ -2,6 +2,7 @@
     "/js/app.js": "/js/app.js",
     "/js/singular/homepage.js": "/js/singular/homepage.js",
     "/css/app.css": "/css/app.css",
-    "/css/singular/dashboard_admin.css": "/css/singular/dashboard_admin.css",
-    "/css/singular/homepage.css": "/css/singular/homepage.css"
+    "/css/singular/homepage.css": "/css/singular/homepage.css",
+    "/css/tailwind.css": "/css/tailwind.css",
+    "/css/singular/dashboard_admin.css": "/css/singular/dashboard_admin.css"
 }

@@ -11,7 +11,7 @@
                     @submit.prevent="analyzeUrl"
                 >
 
-                    <Input v-model="url" id="url" name="url" type="url" placeholder="https://example.com" input-class="w-full pr-14 text-md md:text-xl" container-class="w-full">
+                    <Input v-model="url" id="url" name="url" type="url" placeholder="https://example.com" input-class="w-full pr-16 text-md md:text-xl" container-class="w-full">
                         <button 
                             type="submit" 
                             class="hover:cursor-pointer p-2 hover:scale-110 transition-all absolute inset-y-0 right-4"
@@ -63,7 +63,7 @@ function analyzeUrl() {
         error.value = false
         // message.value = res.data.message
         loading.value = false
-        window.location.href = `/analyze/result?url="${url.value}"`;
+        window.location.href = `/analyze/result?score=${res.data.data.score}&url=${url.value}`;
     })
     .catch(res => {
         loading.value = false
