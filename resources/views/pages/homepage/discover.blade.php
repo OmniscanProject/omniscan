@@ -18,8 +18,6 @@
         </p>
     </div>
 
-
-    <
     <img src="{{ asset('assets/svg/mono-color-logo-bottom-right.svg') }}" class="absolute w-32 lg:w-max -bottom-20 lg:-bottom-40 right-0" alt="{{ __('OmniScan - mono color logo image bottom right') }}">
 </div>
 

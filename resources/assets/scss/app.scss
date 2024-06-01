@@ -28,19 +28,20 @@
 }
 
 // Pages
-#login-page, #forgot-password-page {
+#login-page, #forgot-password-page, #reset-password-page {
     @media (min-width: 768px) {
         height: 90svh;
     }
 }
 #register-page {
+    height: 100% !important;
     @media (min-width: 1868px) {
         height: 90svh;
     }
 }
 
-#login-page, #register-page, #forgot-password-page {
-    .login-container, .register-container {
+#login-page, #register-page, #forgot-password-page, #reset-password-page {
+    .login-container, .register-container, .forgot-password-container, .reset-password-container {
         width: calc(100% - 20px);
         @media (min-width: 768px) {
             width: 90%;

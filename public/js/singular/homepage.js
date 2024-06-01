@@ -22499,10 +22499,13 @@ var _hoisted_7 = {
 };
 var _hoisted_8 = ["alt"];
 var _hoisted_9 = {
-  "class": "right w-full lg:w-1/3"
+  "class": "right w-2/3 lg:w-1/3"
 };
 var _hoisted_10 = ["alt"];
-var _hoisted_11 = ["alt"];
+var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "circle mx-auto w-28 md:w-32 bg-primary h-full"
+}, null, -1 /* HOISTED */);
+var _hoisted_12 = ["alt"];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["FlashMessage"], {
     message: $setup.message,
@@ -22549,12 +22552,12 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     onClick: _cache[1] || (_cache[1] = function ($event) {
       return $setup.scrollTo();
     }),
-    "class": "scroll-down hover:cursor-pointer relative bg-primary rounded-[50%] flex items-center justify-center p-18 w-36 h-36 md:w-44 md:h-44 left-0 right-0 -bottom-16 m-auto z-40 -top-[110px]"
-  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+    "class": "scroll-down hover:cursor-pointer mx-auto relative z-10 w-full"
+  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <img :src=\"'assets/svg/half-circle.svg'\" :alt=\"$t('homepage.analyze.scroll.img.alt')\" class=\"mx-auto\"> "), _hoisted_11, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
     src: 'assets/svg/green-arrow-down.svg',
     alt: _ctx.$t('homepage.analyze.scroll.img.alt'),
-    "class": "relative w-12 md:w-16 h-12 md:h-16 mt-6 md:mt-10"
-  }, null, 8 /* PROPS */, _hoisted_11)])], 64 /* STABLE_FRAGMENT */);
+    "class": "green-arrow mx-auto absolute w-10 md:w-16 h-10 md:h-16 left-0 right-0"
+  }, null, 8 /* PROPS */, _hoisted_12)])], 64 /* STABLE_FRAGMENT */);
 }
 
 /***/ }),
@@ -49522,50 +49525,6 @@ document.addEventListener('DOMContentLoaded', function () {
   window.addEventListener('resize', function () {
     initProductSlider();
   });
-  var pricing = window.pricing;
-  var intervalBtns = document.querySelectorAll('.interval-btn');
-  var backgroundFocus = document.querySelector('.background-focus');
-  var products = document.querySelectorAll('.product');
-  if (Object.keys(pricing).length) {
-    var initValues = function initValues(products) {
-      var interval = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'month';
-      if (products.length > 0) {
-        products.forEach(function (product) {
-          var productCard = product.querySelector('.product-card');
-          var productId = productCard.dataset.product;
-          console.log(pricing[productId].hasOwnProperty(interval));
-          if (!pricing[productId].hasOwnProperty(interval)) {
-            product.classList.add('disabled');
-            return;
-          } else {
-            product.classList.remove('disabled');
-          }
-          var priceSpan = productCard.querySelector("span[data-price]");
-          var intervalSpan = productCard.querySelector("span[data-interval]");
-          var priceIdInput = productCard.querySelector("input[name='price_id']");
-          priceSpan.innerText = pricing[productCard.dataset.product][interval]['price'];
-          intervalSpan.innerText = pricing[productCard.dataset.product][interval]['name'];
-          priceIdInput.value = pricing[productCard.dataset.product][interval]['id'];
-        });
-      }
-    };
-    intervalBtns.forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        console.log('ddd');
-        jquery__WEBPACK_IMPORTED_MODULE_0___default()(".product-list").on('reInit', function (event, slick, direction) {
-          console.log(event);
-          console.log(slick);
-          console.log(direction);
-        });
-        intervalBtns.forEach(function (btn) {
-          btn.classList.remove('active');
-        });
-        backgroundFocus.classList.toggle('active');
-        var interval = btn.dataset.interval;
-        initValues(products, interval);
-      });
-    });
-  }
   //Vue
   var i18n = (0,vue_i18n__WEBPACK_IMPORTED_MODULE_6__.createI18n)({
     locale: "fr",

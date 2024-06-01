@@ -5,7 +5,7 @@
 
 <x-app-layout>
     <div id="free-analyze-result-page" class="pt-10 md:pt-18 pb-24 md:pb-40 flex justify-center items-center bg-primary">
-        <div class="px-5 mx-auto container h-screen">
+        <div class="px-5 mx-auto container min-h-screen">
             <x-header-page title="{!! __('Analysis Result') !!}" />
 
             <div class="content flex flex-col md:flex-row justify-between gap-10">

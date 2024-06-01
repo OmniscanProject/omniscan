@@ -1,8 +1,8 @@
 <x-app-layout>
     <div class="pb-20">
-        <div id="register-page" class="bg-primary px-5 md:pr-10 py-20 flex items-center md:justify-center">
-            <x-auth-session-status class="mb-4" :status="session('status')" />
-            <div class="register-container h-max relative flex flex-col md:flex-row bg-quaternary rounded-xl shadow-container">
+        <div id="register-page" class="bg-primary px-5 md:pr-10 py-20 h-full">
+            <div class="register-container h-max relative flex flex-col md:flex-row bg-quaternary rounded-xl shadow-container md:mx-auto">
+                <x-auth-session-status class="mb-4 mx-auto" :status="session('status')" />
                 <div class="left-side w-full md:w-1/2 bg-white rounded-xl flex justify-center items-center p-8">
                     <img src="{{ asset('assets/svg/logo-vertical.svg') }}" alt="OmniScan - vertical logo" class="w-1/3">
                 </div>
@@ -14,15 +14,22 @@
                         <!-- Firstname -->
                         <div>
                             <x-input-label for="firstname" :value="__('Firstname')" />
-                            <x-text-input id="firstname" class="block mt-1 w-full" type="text" name="firstname" :value="old('firstname')" required autofocus autocomplete="name" />
+                            <x-text-input id="firstname" class="block mt-1 w-full" type="text" name="firstname" :value="old('firstname')" required autofocus autocomplete="firstname" />
                             <x-input-error :messages="$errors->get('firstname')" class="mt-2" />
                         </div>
 
                         <!-- Lastname -->
                         <div class="mt-4">
                             <x-input-label for="lastname" :value="__('Lastname')" />
-                            <x-text-input id="lastname" class="block mt-1 w-full" type="text" name="lastname" :value="old('lastname')" required autofocus autocomplete="name" />
+                            <x-text-input id="lastname" class="block mt-1 w-full" type="text" name="lastname" :value="old('lastname')" required autofocus autocomplete="lastname" />
                             <x-input-error :messages="$errors->get('lastname')" class="mt-2" />
+                        </div>
+
+                        <!-- Phone -->
+                        <div class="mt-4">
+                            <x-input-label for="phone" :value="__('Phone')" />
+                            <x-text-input id="phone" class="block mt-1 w-full" type="text" name="phone" :value="old('phone')" required autofocus autocomplete="phone" />
+                            <x-input-error :messages="$errors->get('phone')" class="mt-2" />
                         </div>
 
                         <!-- Email Address -->

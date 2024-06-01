@@ -10,7 +10,7 @@
             <span class="text-sm font-semibold leading-6 text-secondary00" data-interval=""></span>
         </p>
         <input type="hidden" name="price_id" value="">
-        <a onclick="document.getElementById(`checkout-product-{{ $product->id }}`).submit()" href="#" aria-describedby="{{ $product->id }}" class="relative mt-4 h-12 block overflow-hidden border border-tertiary bg-tertiary text-white shadow-sm transition-all before:absolute before:right-0 before:top-0 before:h-12 before:w-6 before:translate-x-12 text-center before:rotate-6 before:bg-white before:opacity-10 before:duration-700 hover:shadow-tertiary hover:before:-translate-x-40 w-full p-4">
+        <a onclick="document.getElementById(`checkout-product-{{ $product->id }}`).submit()" href="#" aria-describedby="{{ $product->id }}" class="relative mt-4 h-max block overflow-hidden border border-tertiary bg-tertiary text-white shadow-sm transition-all before:absolute before:right-0 before:top-0 before:h-12 before:w-6 before:translate-x-12 text-center before:rotate-6 before:bg-white before:opacity-10 before:duration-700 hover:shadow-tertiary hover:before:-translate-x-40 w-full p-3">
             <span class="relative z-10">{{ __('Purchase the offer') }}</span>
         </a>
         <button class="hidden" type="submit"></button>

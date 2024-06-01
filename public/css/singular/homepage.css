@@ -1,5 +1,5 @@
 #analyze-section {
-  height: 94svh;
+  height: 93svh;
 }
 @media (min-width: 768px) {
   #analyze-section {
@@ -7,7 +7,7 @@
   }
 }
 #analyze-section .banner {
-  height: 96%;
+  height: 94%;
 }
 @media (min-width: 768px) {
   #analyze-section .banner {
@@ -15,13 +15,23 @@
   }
 }
 #analyze-section .scroll-down {
-  top: -6.1%;
-  height: 10%;
+  height: 6%;
 }
 @media (min-width: 768px) {
   #analyze-section .scroll-down {
-    top: -8.1%;
-    height: 15%;
+    height: 7%;
+  }
+}
+#analyze-section .scroll-down .circle {
+  position: relative;
+  border-radius: 0 0 50% 50%/0 0 100% 100%;
+}
+#analyze-section .scroll-down .green-arrow {
+  top: -35%;
+}
+@media (min-width: 768px) {
+  #analyze-section .scroll-down .green-arrow {
+    top: -50%;
   }
 }
 #analyze-section .scroll-down:hover img {
@@ -90,17 +100,7 @@
 }
 
 #slogan-section {
-  height: 36svh;
-}
-@media (min-width: 730px) {
-  #slogan-section {
-    height: 42svh;
-  }
-}
-@media (min-width: 768px) {
-  #slogan-section {
-    height: 62svh;
-  }
+  height: revert-layer;
 }
 
 #products-section .interval-container .background-focus {

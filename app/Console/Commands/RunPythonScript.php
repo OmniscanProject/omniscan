@@ -14,7 +14,7 @@ class RunPythonScript extends Command
     {
         $scriptPath = storage_path('scripts/FreeAnalyze.py');
         $url = $this->argument('url');
-        $output = shell_exec('python ' . $scriptPath . ' --url ' . $url);
+        $output = shell_exec('python3 ' . $scriptPath . ' --url ' . $url);
         $this->info($output);
     }
 }

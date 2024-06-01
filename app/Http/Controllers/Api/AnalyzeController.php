@@ -33,6 +33,7 @@ class AnalyzeController extends Controller
             "url" => substr($output, strpos($output, "Scanning:") + strlen("Scanning:"), strpos($output, "\n", strpos($output, "Scanning:")) - (strpos($output, "Scanning:") + strlen("Scanning:")))
         ];
 
+
         return ResponseClass::sendResponse($data,trans('messages.api.scripts.analyze'),200, false);
     }
 }

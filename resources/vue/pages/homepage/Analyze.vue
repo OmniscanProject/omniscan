@@ -21,13 +21,15 @@
                     </Input>
                 </form>
             </div>
-            <div class="right w-full lg:w-1/3">
+            <div class="right w-2/3 lg:w-1/3">
                 <img :src="'assets/gif/screen.gif'" :alt="$t('homepage.analyze.img.alt')" class="mx-auto">
             </div>
         </div>
     </div>
-    <div @click="scrollTo()" class="scroll-down hover:cursor-pointer relative bg-primary rounded-[50%] flex items-center justify-center p-18 w-36 h-36 md:w-44 md:h-44 left-0 right-0 -bottom-16 m-auto z-40 -top-[110px]">
-        <img :src="'assets/svg/green-arrow-down.svg'" :alt="$t('homepage.analyze.scroll.img.alt')" class="relative w-12 md:w-16 h-12 md:h-16 mt-6 md:mt-10">
+    <div @click="scrollTo()" class="scroll-down hover:cursor-pointer mx-auto relative z-10 w-full">
+        <!-- <img :src="'assets/svg/half-circle.svg'" :alt="$t('homepage.analyze.scroll.img.alt')" class="mx-auto"> -->
+        <div class="circle mx-auto w-28 md:w-32 bg-primary h-full"></div>
+        <img :src="'assets/svg/green-arrow-down.svg'" :alt="$t('homepage.analyze.scroll.img.alt')" class="green-arrow mx-auto absolute w-10 md:w-16 h-10 md:h-16 left-0 right-0">
     </div>
 </template>
 

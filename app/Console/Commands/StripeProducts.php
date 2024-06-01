@@ -62,7 +62,7 @@ class StripeProducts extends Command
                 $createdProduct->save();
             endforeach;
 
-            $prices = $stripe->prices->all(['limit' => 100]);
+            $prices = $stripe->prices->all(['limit' => 100, 'active' => true]);
             if(empty($prices)) {
                 Log::channel('stripe-products')->info('No price(s) found from stripe api');
                 return;
@@ -82,6 +82,7 @@ class StripeProducts extends Command
                     'recurring_interval' => $interval,
                     'active' => $price->active
                 ]);
+                Log::channel('stripe-products')->info('--Update and saving stripe product(s) price successfully!--');
             endforeach;
 
             Log::channel('stripe-products')->info('--Getting and saving stripe product(s) cron, executed successfully!--');

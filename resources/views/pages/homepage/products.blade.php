@@ -1,7 +1,7 @@
 @php
     $products = \App\Models\Product::where('active', 1)->get();
 @endphp
-<div id='products-section' class="bg-white pt-16 md:pt-32 pb-12 h-full">
+<div id='products-section' class="bg-white pt-16 md:pt-32 <?= $products->count() == 0 ? 'pb-24 md:pb-48' : 'pb-12' ?>">
     <div class="relative">
         <img src="{{ asset('assets/svg/mono-color-logo-left.svg') }}" class="absolute w-32 lg:w-max -top-28 lg:-top-[65%]" alt="{{ __('OmniScan - mono color logo image left') }}">
         <div class="content px-5 mx-auto container">
@@ -18,7 +18,9 @@
         </div>
         <img src="{{ asset('assets/svg/mono-color-search-logo-bottom-right.svg') }}" class="absolute w-24 lg:w-max -bottom-[50%] lg:-bottom-[65%] right-0" alt="{{ __('OmniScan - mono color search logo image bottom right') }}">
     </div>
-    <x-product-list :products="$products"/>
+    @if($products->count() > 0)
+        <x-product-list :products="$products"/>
+    @endif
 </div>   
 
 

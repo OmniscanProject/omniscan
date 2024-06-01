@@ -12,14 +12,14 @@
             <span class="absolute inset-0 w-1/2 bg-tertiary rounded-full shadow-sm shadow-black translate-x-0"></span>
         </span>
         <button
-            class="interval-btn relative flex-1 pt-1 text-sm font-medium h-8 rounded-full text-black text-slate-500"
+            class="interval-btn relative flex-1 text-sm font-medium h-8 rounded-full text-black text-slate-500 align-sub"
             data-interval="month"
             aria-pressed="true"
         >
             {{ __('Monthly') }}
         </button>
         <button
-            class="interval-btn relative flex-1 pt-1 text-sm font-medium h-8 rounded-full text-black text-slate-500"
+            class="interval-btn relative flex-1 text-sm font-medium h-8 rounded-full text-black text-slate-500 align-sub"
             data-interval="year"
             aria-pressed="false"
             >
@@ -48,59 +48,48 @@
 
 <script>
     const pricing = {!! json_encode($pricing) !!}
-    window.pricing = pricing;
-    // const intervalBtns = document.querySelectorAll('.interval-btn');
-    // const backgroundFocus = document.querySelector('.background-focus');
+    const intervalBtns = document.querySelectorAll('.interval-btn');
+    const backgroundFocus = document.querySelector('.background-focus');
 
-    // let products = document.querySelectorAll('.product');
+    let products = document.querySelectorAll('.product');
 
-    // if(Object.keys(pricing).length){
-    //     console.log(pricing);
-    //     const initValues = (products, interval = 'month') => {
-    //         if(products.length > 0){        
-    //             products.forEach(product => {
+    if(Object.keys(pricing).length){
+        const initValues = (products, interval = 'month') => {
+            if(products.length > 0){        
+                products.forEach(product => {
 
-    //                 let productCard = product.querySelector('.product-card');
-    //                 let productId = productCard.dataset.product;
+                    let productCard = product.querySelector('.product-card');
+                    let productId = productCard.dataset.product;
 
-    //                 // console.log(pricing[productId].hasOwnProperty(interval));
-    //                 if(!pricing[productId].hasOwnProperty(interval)){
-    //                     product.classList.add('disabled');
-    //                     return;
-    //                 } else {
-    //                     product.classList.remove('disabled');
-    //                 }
+                    // console.log(pricing[productId].hasOwnProperty(interval));
+                    if(!pricing[productId].hasOwnProperty(interval)){
+                        product.classList.add('disabled');
+                        return;
+                    } else {
+                        product.classList.remove('disabled');
+                    }
 
-    //                 let priceSpan = productCard.querySelector("span[data-price]");
-    //                 let intervalSpan = productCard.querySelector("span[data-interval]");
-    //                 let priceIdInput = productCard.querySelector("input[name='price_id']");
-    //                 priceSpan.innerText = pricing[productCard.dataset.product][interval]['price'];
-    //                 intervalSpan.innerText = pricing[productCard.dataset.product][interval]['name'];
-    //                 priceIdInput.value = pricing[productCard.dataset.product][interval]['id'];
+                    let priceSpan = productCard.querySelector("span[data-price]");
+                    let intervalSpan = productCard.querySelector("span[data-interval]");
+                    let priceIdInput = productCard.querySelector("input[name='price_id']");
+                    priceSpan.innerText = pricing[productCard.dataset.product][interval]['price'];
+                    intervalSpan.innerText = pricing[productCard.dataset.product][interval]['name'];
+                    priceIdInput.value = pricing[productCard.dataset.product][interval]['id'];
 
-    //             });
+                });
+            }
+        }
+        initValues(products);
+        intervalBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                intervalBtns.forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                backgroundFocus.classList.toggle('active');
 
-    //             $(".product-list").unslick;
-    //             $(".product-list").not('.slick-initialized').slick({
-    //                 infinite: true,
-    //                 slidesToShow: 1,
-    //                 slidesToScroll: 1,
-    //                 arrows: false,
-    //                 dots: true
-    //             });
-    //         }
-    //     }
-    //     initValues(products);
-    //     intervalBtns.forEach(btn => {
-    //         btn.addEventListener('click', () => {
-    //             intervalBtns.forEach(btn => {
-    //                 btn.classList.remove('active');
-    //             });
-    //             backgroundFocus.classList.toggle('active');
-
-    //             let interval = btn.dataset.interval;
-    //             initValues(products, interval);
-    //         });
-    //     });
-    // }
+                let interval = btn.dataset.interval;
+                initValues(products, interval);
+            });
+        });
+    }
 </script>

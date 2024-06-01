@@ -33,8 +33,8 @@
             <img src="{{ asset('assets/svg/burger.svg') }}" alt="burger" class="fill-current pointer-events-none">
         </button>
     </div>
-    <nav data-target="menu-mobile" id="menu-mobile" class="absolute w-full shadow rounded-b-xl z-10 bg-white">
-        <div class="px-6 pt-2 pb-4 flex flex-col justify-center items-start">
+    <nav data-target="menu-mobile" id="menu-mobile" class="absolute w-full shadow rounded-b-xl z-10 bg-white -top-0.5 relative">
+        <div class="px-6 py-4 flex flex-col justify-center items-start">
             <a href="{{ url('/') }}" class="text-black py-2">{{ __('Home') }}</a>
             <a href="{{ route('about') }}" class="text-black py-2">{{ __('About Us') }}</a>
             <a href="{{ route('services') }}" class="text-black  py-2">{{ __('Services') }}</a>

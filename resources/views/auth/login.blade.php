@@ -1,8 +1,8 @@
 <x-app-layout>
     <div class="pb-20">
-        <div id="login-page" class="bg-primary px-5 md:pr-10 py-20 flex items-center md:justify-center">
-            <x-auth-session-status class="mb-4" :status="session('status')" />
-            <div class="login-container h-max relative flex flex-col md:flex-row bg-tertiary rounded-xl shadow-container">
+        <div id="login-page" class="bg-primary px-5 md:pr-10 py-20 h-full">
+            <x-auth-session-status class="mb-4 mx-auto" :status="session('status')" />
+            <div class="login-container h-max relative flex flex-col md:flex-row bg-tertiary rounded-xl shadow-container md:mx-auto">
                 <div class="left-side w-full md:w-1/2 bg-white rounded-xl flex justify-center items-center p-8">
                     <img src="{{ asset('assets/svg/logo-vertical.svg') }}" alt="OmniScan - vertical logo" class="w-1/3">
                 </div>
