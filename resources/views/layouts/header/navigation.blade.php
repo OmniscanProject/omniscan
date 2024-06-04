@@ -10,7 +10,7 @@
                 {{ __('Login') }}
             </a>
         @else
-            <a class="text-black py-2 md:py-0 block md:hidden" href="{{ route('customer.dashboard.index') }}">
+            <a class="text-black py-2 md:py-0 block md:hidden" href="{{ route('customer.dashboard.profile.index') }}">
                 {{ __('Dashboard') }}
             </a>
             <form method="POST" action="{{ route('logout') }}" class="py-1 md:py-0 md:pt-2 block md:hidden">
@@ -35,7 +35,7 @@
             </div>
 
             <div data-target="menu-user" class="target-sub-menu mt-2 absolute w-full p-3 shadow text-center rounded-md z-10 bg-white">
-                <a class="text-black text-sm" href="{{ route('customer.dashboard.index') }}">
+                <a class="text-black text-sm" href="{{ route('customer.dashboard.profile.index') }}">
                     {{ __('Dashboard') }}
                 </a>
                 <form method="POST" action="{{ route('logout') }}" class="pt-2">

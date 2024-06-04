@@ -13,7 +13,7 @@ class BillingPortalController
             $user = Auth::user();
             $session = $stripe->billingPortal->sessions->create([
                 'customer' => $user->stripe_id,
-                'return_url' => route('checkout.success'),
+                'return_url' => route('customer.dashboard.profile.index'),
             ]);
             return redirect($session->url);
         } catch (\Stripe\Exception\ApiErrorException $e) {

@@ -13,7 +13,7 @@
                             __('Expert Analysis :') => __('Concrete, expert advice on cybersecurity.'),
                             __('Clear Reports :') => __('Concrete, tangible results.'),
                         ],
-                        'image' => 'assets/svg/rounded-img.svg'
+                        'image' => 'assets/svg/glass.svg'
                     ],
                     [
                         'class' => 'bg-gradient-secondary', 
@@ -23,7 +23,7 @@
                             __('Simple Integration :') => __('Fits seamlessly into your existing systems.'),
                             __('Permanent Evolution :') => __('Learns and adapts for optimal protection.'),
                         ], 
-                        'image' => 'assets/svg/rounded-img.svg'
+                        'image' => 'assets/svg/automatisation.svg'
                     ],
                     [
                         'class' => 'bg-gradient-tertiary', 
@@ -33,7 +33,7 @@
                             __('Accessibility for All :') => __('Democratized Security for Every Business'),
                             __('Constant Support :') => __('Guides and Assistance for All Your Needs'),
                         ], 
-                        'image' => 'assets/svg/rounded-img.svg'
+                        'image' => 'assets/svg/hand.svg'
                     ]
                 ];
             @endphp

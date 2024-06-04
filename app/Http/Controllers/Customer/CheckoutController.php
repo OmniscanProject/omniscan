@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\Customer;
 
+use Stripe\Stripe;
 use App\Models\Customer;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Facades\Auth;
 use Stripe\Checkout\Session;
-use Stripe\Stripe;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 
 class CheckoutController
 {
@@ -16,29 +16,26 @@ class CheckoutController
         try {
             $priceId = $request->input('price_id');
             $user = Auth::user();
-            $customerId = $user->stripe_id;
+            $customerStripeId = $user->stripe_id;
             Stripe::setApiKey(config('services.stripe.secret'));
             $session = Session::create([
                 'success_url' => route('checkout.success') . "?session.id={CHECKOUT_SESSION_ID}",
                 'cancel_url' => route('homepage'),
                 'mode' => 'subscription',
-                'customer' => $customerId,
+                'customer' => $customerStripeId,
                 'line_items' => [[
                     'price' => $priceId,
                     'quantity' => 1,
                 ]]
             ]);
+
             return Redirect::to($session->url);
         } catch (\Exception $e) {
             return redirect()->back()->with('error', $e->getMessage());
         }
     }
 
-    /**
-     * Page de succès du paiement.
-     *
-     * @return \Illuminate\View\View
-     */
+
     public function checkoutSuccess(Request $request)
     {
         try {
@@ -46,17 +43,19 @@ class CheckoutController
             Stripe::setApiKey(config('services.stripe.secret'));
             $checkout_session = \Stripe\Checkout\Session::retrieve($checkout_session_id);
             $user = Auth::user();
-            $customerId = $user->stripe_id;
-            if ($customerId == null) {
-                $customerId = Customer::find($user->id);
-                $customerId->stripe_id = $checkout_session->customer;
-                $customerId->save();
+            $customerStripeId = $user->stripe_id;
+            if ($customerStripeId == null) {
+                $customerStripeId = Customer::find($user->id);
+                $customerStripeId->stripe_id = $checkout_session->customer;
+                $customerStripeId->save();
             }
             $session = \Stripe\BillingPortal\Session::create([
-                'customer' => $customerId,
+                'customer' => $customerStripeId,
+                
                 'return_url' => route('checkout.success'),
             ]);
-            return Redirect::to($session->url);
+            return view('pages.checkout.success');
+            // return Redirect::to($session->url);
         } catch (\Exception $e) {
             return redirect()->back()->with('error', $e->getMessage());
         }

@@ -1,6 +1,6 @@
 <x-app-layout>
-    <div class="py-12 h-screen">
-        <div class="px-5 container mx-auto">
+    <div id="checkout-success-page" class="h-screen pt-10 md:pt-18 pb-24 md:pb-40 flex justify-center items-start bg-primary">
+        <div class="mx-auto px-5 container">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
                     <h1 class="text-2xl font-semibold">{{ __('Payment Successful') }}</h1>

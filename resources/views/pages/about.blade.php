@@ -5,8 +5,8 @@
 
 
             <div class="flex flex-col md:flex-row justify-center gap-8 md:gap-12">
-                <div class="left-side w-full md:w-1/2">
-                    <img src="{{ asset('assets/svg/squared-img.svg') }}" alt="OmniScan - logo" class="w-full h-full object-cover rounded-3xl">
+                <div class="left-side w-full md:w-1/2 bg-white rounded-3xl flex items-center justify-center">
+                    <img src="{{ asset('assets/svg/about.svg') }}" alt="OmniScan - logo" class="w-3/4 h-max m-auto">
                 </div>
                 <div class="right-side px-4 md:px-0 w-full md:w-1/2">
                     <h2 class="text-lg md:text-2xl font-title text-white text-center">"{{ __('Making cybersecurity accessible to everyone') }}"</h2>

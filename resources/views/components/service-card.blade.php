@@ -8,7 +8,9 @@
 
 <div class="service-card text-center rounded-xl px-4 lg:px-8 xl:px-10 py-14 lg:py-16 xl:py-20 h-full {{ $class }}">
     <div class="flex flex-col items-center justify-center w-full">
-        <img src="{{ asset($image) }}" alt="OmniScan - Service image" class="h-2/3 w-2/3">
+        <div class="rounded-full h-1/3 w-2/3 rounded-full bg-white p-4 md:p-6">
+            <img src="{{ asset($image) }}" alt="OmniScan - Service image" class="h-full w-full aspect-square">
+        </div>
         <div class="xl:h-20 mt-8 md:mt-12 flex items-start justify-center w-full">
             <h2 class="font-title text-white text-lg text-center w-2/3">{{ $title }}</h2>
         </div>
