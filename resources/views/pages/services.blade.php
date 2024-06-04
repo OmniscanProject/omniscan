@@ -1,3 +1,7 @@
+@php
+    $lang = App::getLocale();
+@endphp
+
 <x-app-layout>
     <div id="services-page" class="pt-10 md:pt-18 pb-24 md:pb-40 flex justify-center items-center bg-primary">
         <div class="w-full">
@@ -45,10 +49,16 @@
                 @endforeach
             </ul>
 
-            <div class="content mx-auto px-5 max-w-3xl mt-20 md:mt-28">
-                <p class="text-center text-white leading-8 text-justify">
-                    {{ __("OmniScan gives you advanced protection with simplicity and efficiency. Discover tools designed to maximize your security without complicating your work. Because every click counts, choose OmniScan for intelligent and accessible cyber defense.") }}
-                </p>
+            <div class="content mx-auto px-5 w-full md:w-max mt-20 md:mt-28 text-center">
+                {{-- <p class="text-center text-white leading-8">
+                    {{ __('At OmniScan, we believe that online security is an essential right. Join us to secure your digital space with efficiency and simplicity.') }}
+                </p> --}}
+                <p class="text-center text-white leading-8">
+                    @if($lang === 'en')
+                    {!! __("OmniScan gives you advanced protection with simplicity and efficiency.<br> Discover tools designed to maximize your security without complicating your work.<br> Because every click counts, choose OmniScan for :intelligent and :accessible cyber defense.", ['intelligent' => "<span class='text-tertiary'>intelligent</span>", 'accessible' => "<span class='text-tertiary'>accessible</span>"]) !!}
+                    @else
+                    {!! __("OmniScan gives you advanced protection with simplicity and efficiency.<br> Discover tools designed to maximize your security without complicating your work.<br> Because every click counts, choose OmniScan for :intelligent and :accessible cyber defense.", ['intelligent' => "<span class='text-tertiary'>intelligente</span>", 'accessible' => "<span class='text-tertiary'>accessible</span>"]) !!}
+                    @endif
             </div>
         </div>
     </div>

@@ -1,5 +1,5 @@
 <template>
-    <div id="flash-message" :class="`${errors ? 'bg-red-500' : 'bg-green-500'} ${visible ? 'show' : ''} absolute z-10 p-3 w-max mx-auto left-0 right-0 flex items-center justify-center rounded-md`">
+    <div id="flash-message" :class="`${errors ? 'bg-red-500' : 'bg-green-500'} ${visible ? 'show' : ''} absolute z-10 p-3 mx-auto w-auto md:w-max inset-x-5 flex items-center justify-center rounded-md`">
         <div class="text-white text-center">
         {{ message }}
         </div>
@@ -18,6 +18,7 @@ const props = defineProps({
 
 const visible = ref(false);
 
+
 watch(() => props.message, () => {
     visible.value = true;
     setTimeout(() => {
@@ -31,7 +32,7 @@ watch(() => props.message, () => {
         transform: translateY(-100%);
         transition: transform 0.5s;
         &.show {
-            transform: translateY(100%);
+            transform: translateY(80%);
         }
     }
 </style>
